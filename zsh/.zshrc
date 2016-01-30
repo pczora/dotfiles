@@ -55,7 +55,7 @@ export MAHOUT_PATH=/usr/local/mahout-distribution-0.9
 
 # Java stuff
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+#export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export LC_ALL=de_DE.UTF-8
 export LANG=de_DE.UTF-8
 

@@ -35,8 +35,9 @@ Bundle 'honza/vim-snippets'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rust-lang/rust.vim'
-Plugin 'bling/vim-airline'
-Plugin 'mikewest/vimroom'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'mikewest/vimroom'
 Plugin 'ajh17/VimCompletesMe'
 
 " All of your Plugins must be added before the following line
@@ -100,6 +101,7 @@ let g:latex_complete_close_braces=1
 let g:latex_complete_recursive_bib=1
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀︎'
+let g:airline_theme = 'dark'
 
 set encoding=utf-8
 
