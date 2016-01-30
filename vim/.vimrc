@@ -39,6 +39,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'mikewest/vimroom'
 Plugin 'ajh17/VimCompletesMe'
+Plugin 'AlessandroYorba/Alduin'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,7 +47,7 @@ filetype plugin indent on    " required
 " }}}
 
 let &t_Co=256
-:colorscheme gruvbox
+:colorscheme alduin
 :set background=dark
 :syntax on
 :set number
