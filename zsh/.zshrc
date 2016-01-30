@@ -45,9 +45,9 @@ plugins=(battery git themes github osx colorize brew scala cp)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export EDITOR=nvim
-export PATH=/usr/local/bin:$PATH:/Users/pczora/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin
-export GOPATH=/usr/local/go/bin
+export EDITOR=vim
+export PATH=Users/pczora/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH
+#export GOPATH=/usr/local/go/bin
 
 #Mahout, Hadoop etc
 export HADOOP_PATH=/usr/local/hadoop-2.4.1
@@ -62,7 +62,9 @@ export LANG=de_DE.UTF-8
 # Custom Aliases
 #alias thesis='cd /Users/pczora/Dropbox/Uni/Master/Masterthesis/'
 #alias rdiary='cd /Users/pczora/Documents/researchdiary; jekyll build --watch &; jekyll serve &'
-alias vim=nvim
+#alias vim=nvim
 
 #alias duf='du -sk * | sort -n | perl -ne '\'($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

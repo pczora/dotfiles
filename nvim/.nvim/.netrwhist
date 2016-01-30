@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/pczora/Code/Test Workspace/echoserver/.git/hooks'
-let g:netrw_dirhist_2='/private/tmp/dotfiles/nvim/.config'
-let g:netrw_dirhist_3='/private/tmp/dotfiles/nvim/.config/nvim'
