@@ -31,13 +31,10 @@ Plugin 'syntastic'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Bundle 'honza/vim-snippets'
-"Plugin 'UltiSnips'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rust-lang/rust.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'mikewest/vimroom'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'AlessandroYorba/Alduin'
 
@@ -54,14 +51,6 @@ let &t_Co=256
 :set cc=80
 :set nocompatible
 :set hidden
-
-" Set correct font when using MacVIM
-"if has("gui_running")
-    "let s:uname = system("uname")
-    "if s:uname == "Darwin\n"
-        "set guifont=Inconsolata\ for\ Powerline:h12
-    "endif
-"endif
 
 " Tabs & Autoindentation {{{
 :set tabstop=8     " tabs are at proper location
@@ -100,15 +89,16 @@ let g:latex_view_method='general'
 
 let g:latex_complete_close_braces=1
 let g:latex_complete_recursive_bib=1
+
+" Airline
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀︎'
-let g:airline_theme = 'dark'
+let g:airline_theme = 'base16'
 
 set encoding=utf-8
 
 set wrap
 set linebreak
-
 let &showbreak='↪ '
 
 set incsearch " Preview as you type "
@@ -139,10 +129,3 @@ set backspace=2
 autocmd FileType python set sw=4
 autocmd FileType python set ts=4
 autocmd FileType python set sts=4
-
-"YouCompleteME
-"let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags fromCtags file
-"let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
-"let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
-"let g:ycm_complete_in_comments = 1 " Completion in comments
-"let g:ycm_complete_in_strings = 1 " Completion in string
