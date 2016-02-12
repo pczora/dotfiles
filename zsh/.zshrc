@@ -7,9 +7,11 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 
+export EDITOR=emacs
+
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshconfig="$EDITOR ~/.zshrc"
+alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -40,13 +42,13 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(battery git themes github osx colorize brew scala cp)
+plugins=(battery git themes github osx colorize brew cp vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export EDITOR=vim
-export PATH=Users/pczora/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH
+
+export PATH=Users/pczora/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH:/usr/local/bin
 #export GOPATH=/usr/local/go/bin
 
 #Mahout, Hadoop etc
@@ -56,6 +58,7 @@ export MAHOUT_PATH=/usr/local/mahout-distribution-0.9
 # Java stuff
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export PATH=$JAVA_HOME/bin:$PATH
 export LC_ALL=de_DE.UTF-8
 export LANG=de_DE.UTF-8
 
@@ -65,6 +68,10 @@ export LANG=de_DE.UTF-8
 #alias vim=nvim
 
 #alias duf='du -sk * | sort -n | perl -ne '\'($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
+alias vp='vagrant provision'
+alias vu='vagrant up'
+alias vs='vagrant ssh'
 
-
+alias gp='git pull'
+alias gc='git commit'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
