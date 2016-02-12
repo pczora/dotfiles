@@ -63,8 +63,9 @@ let &t_Co=256
 ":set cindent       " stricter rules for C programs
 " }}}
 
-" Type jj instead of <ESC> to exit insert mode
+" Type jj/jk instead of <ESC> to exit insert mode
 inoremap jj l
+inoremap jk ^[l
 
 :set laststatus=2	" Show statusbar always
 :set cursorline		" highlight the current line
