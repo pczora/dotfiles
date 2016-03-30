@@ -48,7 +48,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-export PATH=Users/pczora/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH:/usr/local/bin
+export PATH=/Users/pczora/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH
 #export GOPATH=/usr/local/go/bin
 
 #Mahout, Hadoop etc
