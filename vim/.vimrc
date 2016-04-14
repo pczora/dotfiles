@@ -39,6 +39,7 @@ Plugin 'ajh17/VimCompletesMe'
 Plugin 'AlessandroYorba/Alduin'
 Plugin 'tpope/vim-fugitive'
 Plugin 'elzr/vim-json'
+Plugin 'sclarki/neonwave.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,11 +47,11 @@ filetype plugin indent on    " required
 " }}}
 
 let &t_Co=256
-:colorscheme alduin
 :set background=dark
 :syntax on
+":set cc=80
+colorscheme neonwave
 :set number
-:set cc=80
 :set nocompatible
 :set hidden
 
