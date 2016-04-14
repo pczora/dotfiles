@@ -7,7 +7,7 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 
-export EDITOR=emacs
+export EDITOR=vim
 
 # Example aliases
 alias zshconfig="$EDITOR ~/.zshrc"
@@ -51,16 +51,15 @@ source $ZSH/oh-my-zsh.sh
 export PATH=Users/pczora/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH:/usr/local/bin
 #export GOPATH=/usr/local/go/bin
 
-#Mahout, Hadoop etc
-export HADOOP_PATH=/usr/local/hadoop-2.4.1
-export MAHOUT_PATH=/usr/local/mahout-distribution-0.9
-
 # Java stuff
+if [[ 'uname' == 'Darwin' ]]
+then
+        export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+        export PATH=$JAVA_HOME/bin:$PATH
+    fi
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-export PATH=$JAVA_HOME/bin:$PATH
 export LC_ALL=de_DE.UTF-8
-export LANG=de_DE.UTF-8
+export LANG=en_US.UTF-8
 
 # Custom Aliases
 #alias thesis='cd /Users/pczora/Dropbox/Uni/Master/Masterthesis/'
