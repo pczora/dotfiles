@@ -73,6 +73,7 @@ alias vu='vagrant up'
 alias vs='vagrant ssh'
 
 alias g='git'
+alias gs='git status'
 alias gpl='git pull'
 alias gps='git push'
 alias gc='git commit'
