@@ -50,7 +50,7 @@ let &t_Co=256
 :set background=dark
 :syntax on
 ":set cc=80
-colorscheme neonwave
+colorscheme solarized
 :set number
 :set nocompatible
 :set hidden
