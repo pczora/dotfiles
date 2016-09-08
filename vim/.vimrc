@@ -7,7 +7,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
 Plugin 'unimpaired.vim'
 Plugin 'lervag/vim-latex'
 Plugin 'surround.vim'
@@ -40,6 +39,7 @@ Plugin 'AlessandroYorba/Alduin'
 Plugin 'tpope/vim-fugitive'
 Plugin 'elzr/vim-json'
 Plugin 'sclarki/neonwave.vim'
+Plugin 'dracula/vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,7 +50,7 @@ let &t_Co=256
 :set background=dark
 :syntax on
 ":set cc=80
-colorscheme solarized
+colorscheme dracula
 :set number
 :set nocompatible
 :set hidden
@@ -105,6 +105,7 @@ set wrap
 set linebreak
 let &showbreak='↪ '
 
+" Search
 set incsearch " Preview as you type "
 set ignorecase " Don't be case sensitive "
 set smartcase " If you type a capital letter, be case sensitive "
@@ -123,8 +124,8 @@ set autoread
 
 "Switch buffers more conveniently
 "Shift+J & Shift+K
-map <S-J> :bnext<CR>
-map <S-K> :bprevious<CR>
+map <A-Right> :bnext<CR>
+map <A-Left> :bprevious<CR>
 
 "Backspace works for everything in insert mode
 set backspace=2
