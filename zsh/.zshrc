@@ -54,13 +54,48 @@ export PATH=/Users/pczora/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/
 # Java stuff
 if [[ 'uname' == 'Darwin' ]]
 then
-        export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-        export PATH=$JAVA_HOME/bin:$PATH
-    fi
+    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+    export PATH=$JAVA_HOME/bin:$PATH
+fi
 
 export LC_ALL=de_DE.UTF-8
 export LANG=en_US.UTF-8
 
+deb_update() {
+    print "=== Update package lists ==="
+    sudo apt-get update
+}
+
+deb_upgrade() {
+    deb_update
+    print "=== Upgrade system packages ==="
+    sudo apt-get upgrade
+}
+
+deb_install() {
+    sudo apt-get install $1
+}
+
+brew_update() {
+    print "=== Update package lists ==="
+    brew update
+}
+
+brew_upgrade() {
+    brew_update
+    print "=== Upgrade system packages ==="
+    brew upgrade
+}
+
+brew_install() {
+    brew install $1
+}
+
+
+# TODO: Conditional use of functions based on OS
+alias update=deb_update
+alias upgrade=deb_upgrade
+alias install=deb_install
 # Custom Aliases
 #alias thesis='cd /Users/pczora/Dropbox/Uni/Master/Masterthesis/'
 #alias rdiary='cd /Users/pczora/Documents/researchdiary; jekyll build --watch &; jekyll serve &'
@@ -76,3 +111,6 @@ alias gpl='git pull'
 alias gps='git push'
 alias gc='git commit'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="/home/pcz/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
