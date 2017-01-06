@@ -52,7 +52,7 @@ export PATH=/Users/pczora/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/
 #export GOPATH=/usr/local/go/bin
 
 # Java stuff
-if [[ 'uname' == 'Darwin' ]]
+if [[ `uname` == 'Darwin' ]]
 then
     export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
     export PATH=$JAVA_HOME/bin:$PATH
@@ -91,11 +91,39 @@ brew_install() {
     brew install $1
 }
 
+generic_update() {
+    if [[ `uname` == 'Darwin' ]]
+    then
+        brew_update
+    elif [[ `uname -o` == 'GNU/Linux' ]]
+    then
+        deb_update
+    fi
+}
 
-# TODO: Conditional use of functions based on OS
-alias update=deb_update
-alias upgrade=deb_upgrade
-alias install=deb_install
+generic_upgrade() {
+    if [[ `uname` == 'Darwin' ]]
+    then
+        brew_upgrade
+    elif [[ `uname -o` == 'GNU/Linux' ]]
+    then
+        deb_upgrade
+    fi
+}
+
+generic_install() {
+    if [[ `uname` == 'Darwin' ]]
+    then
+        brew_install
+    elif [[ `uname -o` == 'GNU/Linux' ]]
+    then
+        deb_install
+    fi
+}
+
+alias update=generic_update
+alias upgrade=generic_upgrade
+alias install=generic_install
 # Custom Aliases
 #alias thesis='cd /Users/pczora/Dropbox/Uni/Master/Masterthesis/'
 #alias rdiary='cd /Users/pczora/Documents/researchdiary; jekyll build --watch &; jekyll serve &'
