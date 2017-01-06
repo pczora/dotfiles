@@ -124,12 +124,7 @@ generic_install() {
 alias update=generic_update
 alias upgrade=generic_upgrade
 alias install=generic_install
-# Custom Aliases
-#alias thesis='cd /Users/pczora/Dropbox/Uni/Master/Masterthesis/'
-#alias rdiary='cd /Users/pczora/Documents/researchdiary; jekyll build --watch &; jekyll serve &'
-#alias vim=nvim
 
-#alias duf='du -sk * | sort -n | perl -ne '\'($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
 alias vp='vagrant provision'
 alias vu='vagrant up'
 alias vs='vagrant ssh'
