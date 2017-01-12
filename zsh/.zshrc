@@ -76,6 +76,10 @@ deb_install() {
     sudo apt-get install $1
 }
 
+deb_search() {
+    sudo apt-cache search $1
+}
+
 brew_update() {
     print "=== Update package lists ==="
     brew update
@@ -89,6 +93,10 @@ brew_upgrade() {
 
 brew_install() {
     brew install $1
+}
+
+brew_search() {
+    brew search $1
 }
 
 generic_update() {
@@ -114,16 +122,27 @@ generic_upgrade() {
 generic_install() {
     if [[ `uname` == 'Darwin' ]]
     then
-        brew_install
+        brew_install $1
     elif [[ `uname -o` == 'GNU/Linux' ]]
     then
-        deb_install
+        deb_install $1
+    fi
+}
+
+generic_search() {
+    if [[ `uname` == 'Darwin' ]]
+    then
+        brew_search $1
+    elif [[ `uname -o` == 'GNU/Linux' ]]
+    then
+        deb_search $1
     fi
 }
 
 alias update=generic_update
 alias upgrade=generic_upgrade
 alias install=generic_install
+alias search=generic_search
 
 alias vp='vagrant provision'
 alias vu='vagrant up'
