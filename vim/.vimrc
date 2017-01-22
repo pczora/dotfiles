@@ -40,6 +40,10 @@ Plugin 'AlessandroYorba/Alduin'
 Plugin 'tpope/vim-fugitive'
 Plugin 'elzr/vim-json'
 Plugin 'sclarki/neonwave.vim'
+"Plugin 'tmux-plugins/vim-tmux'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'dracula/vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,7 +54,7 @@ let &t_Co=256
 :set background=dark
 :syntax on
 ":set cc=80
-colorscheme solarized
+colorscheme dracula
 :set number
 :set nocompatible
 :set hidden
@@ -88,7 +92,7 @@ filetype indent on
 " " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
-let g:latex_view_general_viewer='open'
+let g:latex_view_general_viewer='open -a Preview'
 let g:latex_view_method='general'
 
 let g:latex_complete_close_braces=1

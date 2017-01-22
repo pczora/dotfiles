@@ -5,9 +5,9 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="dracula"
 
-export EDITOR=emacs
+export EDITOR=vim
 
 # Example aliases
 alias zshconfig="$EDITOR ~/.zshrc"
@@ -78,3 +78,4 @@ alias gpl='git pull'
 alias gps='git push'
 alias gc='git commit'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
