@@ -49,7 +49,7 @@ filetype plugin indent on    " required
 let &t_Co=256
 :set background=dark
 :syntax on
-":set cc=80
+:set cc=100
 colorscheme dracula
 :set number
 :set nocompatible

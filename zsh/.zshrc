@@ -52,21 +52,98 @@ export PATH=/Users/pczora/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/
 #export GOPATH=/usr/local/go/bin
 
 # Java stuff
-if [[ 'uname' == 'Darwin' ]]
+if [[ `uname` == 'Darwin' ]]
 then
-        export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-        export PATH=$JAVA_HOME/bin:$PATH
-    fi
+    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+    export PATH=$JAVA_HOME/bin:$PATH
+fi
 
 export LC_ALL=de_DE.UTF-8
 export LANG=en_US.UTF-8
 
-# Custom Aliases
-#alias thesis='cd /Users/pczora/Dropbox/Uni/Master/Masterthesis/'
-#alias rdiary='cd /Users/pczora/Documents/researchdiary; jekyll build --watch &; jekyll serve &'
-#alias vim=nvim
+deb_update() {
+    print "=== Update package lists ==="
+    sudo apt-get update
+}
 
-#alias duf='du -sk * | sort -n | perl -ne '\'($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
+deb_upgrade() {
+    deb_update
+    print "=== Upgrade system packages ==="
+    sudo apt-get upgrade
+}
+
+deb_install() {
+    sudo apt-get install $1
+}
+
+deb_search() {
+    sudo apt-cache search $1
+}
+
+brew_update() {
+    print "=== Update package lists ==="
+    brew update
+}
+
+brew_upgrade() {
+    brew_update
+    print "=== Upgrade system packages ==="
+    brew upgrade
+}
+
+brew_install() {
+    brew install $1
+}
+
+brew_search() {
+    brew search $1
+}
+
+generic_update() {
+    if [[ `uname` == 'Darwin' ]]
+    then
+        brew_update
+    elif [[ `uname -o` == 'GNU/Linux' ]]
+    then
+        deb_update
+    fi
+}
+
+generic_upgrade() {
+    if [[ `uname` == 'Darwin' ]]
+    then
+        brew_upgrade
+    elif [[ `uname -o` == 'GNU/Linux' ]]
+    then
+        deb_upgrade
+    fi
+}
+
+generic_install() {
+    if [[ `uname` == 'Darwin' ]]
+    then
+        brew_install $1
+    elif [[ `uname -o` == 'GNU/Linux' ]]
+    then
+        deb_install $1
+    fi
+}
+
+generic_search() {
+    if [[ `uname` == 'Darwin' ]]
+    then
+        brew_search $1
+    elif [[ `uname -o` == 'GNU/Linux' ]]
+    then
+        deb_search $1
+    fi
+}
+
+alias update=generic_update
+alias upgrade=generic_upgrade
+alias install=generic_install
+alias search=generic_search
+
 alias vp='vagrant provision'
 alias vu='vagrant up'
 alias vs='vagrant ssh'
@@ -76,3 +153,6 @@ alias gpl='git pull'
 alias gps='git push'
 alias gc='git commit'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="/home/pcz/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
