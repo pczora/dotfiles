@@ -59,12 +59,8 @@ colorscheme dracula
 :set hidden
 
 " Tabs & Autoindentation {{{
-:set tabstop=8     " tabs are at proper location
 :set expandtab     " don't use actual tab character (ctrl-v)
-:set shiftwidth=4  " indenting is 4 spaces
 :set autoindent    " turns it on
-:set smartindent   " does the right thing (mostly) in programs
-":set cindent       " stricter rules for C programs
 " }}}
 
 " Type jj/jk instead of <ESC> to exit insert mode
@@ -127,13 +123,8 @@ set autoread
 
 "Switch buffers more conveniently
 "Shift+J & Shift+K
-map <A-Right> :bnext<CR>
-map <A-Left> :bprevious<CR>
+map <S-K> :bnext<CR>
+map <S-J> :bprevious<CR>
 
 "Backspace works for everything in insert mode
 set backspace=2
-
-"Indentation for Python
-autocmd FileType python set sw=4
-autocmd FileType python set ts=4
-autocmd FileType python set sts=4
