@@ -156,3 +156,5 @@ alias gc='git commit'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
+
+export PATH="$HOME/.yarn/bin:$PATH"

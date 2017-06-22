@@ -43,6 +43,7 @@ Plugin 'tmux-plugins/vim-tmux'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'dracula/vim'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -60,6 +61,8 @@ colorscheme dracula
 
 " Tabs & Autoindentation {{{
 :set expandtab     " don't use actual tab character (ctrl-v)
+:set shiftwidth=2
+:set softtabstop=2
 :set autoindent    " turns it on
 " }}}
 
@@ -128,3 +131,17 @@ map <S-J> :bprevious<CR>
 
 "Backspace works for everything in insert mode
 set backspace=2
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" JS stuffs
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+let g:syntastic_javascript_checkers = ['eslint']
