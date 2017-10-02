@@ -1,49 +1,40 @@
-" vim:fdm=marker
-filetype off                  " required
 
 " Vundle/Plugins {{{
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" let Vundle manage Vundle, required
+
 Plugin 'gmarik/Vundle.vim'
+
+" Utility functions/stuff used by other plugins
+Plugin 'L9'
+
 Plugin 'unimpaired.vim'
-Plugin 'lervag/vim-latex'
 Plugin 'surround.vim'
 Plugin 'EasyMotion'
-Bundle 'jellybeans.vim'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
 Plugin 'airblade/vim-gitgutter'
-Plugin 'mattr555/vim-instacode'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'trailing-whitespace'
-Plugin 'delimitMate.vim'
-Plugin 'The-NERD-Commenter'
-Plugin 'L9'
-Plugin 'FuzzyFinder'
-Plugin 'Skittles-Berry'
-Plugin 'github-theme'
 Plugin 'SuperTab'
-Plugin 'syntastic'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-Bundle 'honza/vim-snippets'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'rust-lang/rust.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ajh17/VimCompletesMe'
-Plugin 'AlessandroYorba/Alduin'
 Plugin 'tpope/vim-fugitive'
-Plugin 'elzr/vim-json'
-Plugin 'sclarki/neonwave.vim'
-Plugin 'tmux-plugins/vim-tmux'
-Plugin 'pangloss/vim-javascript'
+
+" coding stuff
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'fatih/vim-go'
+Plugin 'rust-lang/rust.vim'
 Plugin 'mxw/vim-jsx'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'pangloss/vim-javascript'
+Plugin 'elzr/vim-json'
+Plugin 'lervag/vim-latex'
+
+" colorschemes
 Plugin 'dracula/vim'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'AlessandroYorba/Alduin'
+Plugin 'github-theme'
+Plugin 'Skittles-Berry'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -145,3 +136,5 @@ let g:syntastic_check_on_wq = 0
 " JS stuffs
 let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 let g:syntastic_javascript_checkers = ['eslint']
+
+let g:jsx_ext_required = 0
