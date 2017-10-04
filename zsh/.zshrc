@@ -42,7 +42,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(battery git themes github osx colorize brew cp vagrant mvn)
+plugins=(battery git themes github osx colorize brew cp vagrant mvn kubectl gradle)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -51,92 +51,94 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/Users/pczora/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH
 #export GOPATH=/usr/local/go/bin
 
-# Java stuff
+# macOS specific configuration
 if [[ `uname` == 'Darwin' ]]
 then
-    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-    export PATH=$JAVA_HOME/bin:$PATH
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+  export PATH=$JAVA_HOME/bin:$PATH
+  source /Users/pczora/google-cloud-sdk/path.zsh.inc
+  source /Users/pczora/google-cloud-sdk/completion.zsh.inc
 fi
 
 export LC_ALL=de_DE.UTF-8
 export LANG=en_US.UTF-8
 
 deb_update() {
-    print "=== Update package lists ==="
-    sudo apt-get update
+  print "=== Update package lists ==="
+  sudo apt-get update
 }
 
 deb_upgrade() {
-    deb_update
-    print "=== Upgrade system packages ==="
-    sudo apt-get upgrade
+  deb_update
+  print "=== Upgrade system packages ==="
+  sudo apt-get upgrade
 }
 
 deb_install() {
-    sudo apt-get install $1
+  sudo apt-get install $1
 }
 
 deb_search() {
-    sudo apt-cache search $1
+  sudo apt-cache search $1
 }
 
 brew_update() {
-    print "=== Update package lists ==="
-    brew update
+  print "=== Update package lists ==="
+  brew update
 }
 
 brew_upgrade() {
-    brew_update
-    print "=== Upgrade system packages ==="
-    brew upgrade
+  brew_update
+  print "=== Upgrade system packages ==="
+  brew upgrade
 }
 
 brew_install() {
-    brew install $1
+  brew install $1
 }
 
 brew_search() {
-    brew search $1
+  brew search $1
 }
 
 generic_update() {
-    if [[ `uname` == 'Darwin' ]]
-    then
-        brew_update
-    elif [[ `uname -o` == 'GNU/Linux' ]]
-    then
-        deb_update
-    fi
+  if [[ `uname` == 'Darwin' ]]
+  then
+    brew_update
+  elif [[ `uname -o` == 'GNU/Linux' ]]
+  then
+    deb_update
+  fi
 }
 
 generic_upgrade() {
-    if [[ `uname` == 'Darwin' ]]
-    then
-        brew_upgrade
-    elif [[ `uname -o` == 'GNU/Linux' ]]
-    then
-        deb_upgrade
-    fi
+  if [[ `uname` == 'Darwin' ]]
+  then
+    brew_upgrade
+  elif [[ `uname -o` == 'GNU/Linux' ]]
+  then
+    deb_upgrade
+  fi
 }
 
 generic_install() {
-    if [[ `uname` == 'Darwin' ]]
-    then
-        brew_install $1
-    elif [[ `uname -o` == 'GNU/Linux' ]]
-    then
-        deb_install $1
-    fi
+  if [[ `uname` == 'Darwin' ]]
+  then
+    brew_install $1
+  elif [[ `uname -o` == 'GNU/Linux' ]]
+  then
+    deb_install $1
+  fi
 }
 
 generic_search() {
-    if [[ `uname` == 'Darwin' ]]
-    then
-        brew_search $1
-    elif [[ `uname -o` == 'GNU/Linux' ]]
-    then
-        deb_search $1
-    fi
+  if [[ `uname` == 'Darwin' ]]
+  then
+    brew_search $1
+  elif [[ `uname -o` == 'GNU/Linux' ]]
+  then
+    deb_search $1
+  fi
 }
 
 alias update=generic_update
@@ -149,10 +151,19 @@ alias vu='vagrant up'
 alias vs='vagrant ssh'
 
 alias g='git'
+alias gs='git status'
 alias gpl='git pull'
 alias gps='git push'
 alias gc='git commit'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
-export NVM_DIR="/home/pcz/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="$HOME/.yarn/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+if [[ `uname` == 'Darwin' ]]
+then
+  export SDKMAN_DIR="/Users/pczora/.sdkman"
+  [[ -s "/Users/pczora/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/pczora/.sdkman/bin/sdkman-init.sh"
+fi
