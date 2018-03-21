@@ -42,13 +42,15 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(battery git themes github osx colorize brew cp vagrant mvn kubectl gradle)
+plugins=(battery git themes github osx colorize brew cp vagrant mvn kubectl gradle z)
 
 source $ZSH/oh-my-zsh.sh
 
+export GOROOT="/opt/golang"
+export GOPATH="/home/pczora/code/go"
 # Customize to your needs...
 
-export PATH=/Users/pczora/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH
+export PATH=$GOROOT/bin:$GOPATH/bin:/Users/pczora/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH:~/.bin
 #export GOPATH=/usr/local/go/bin
 
 # macOS specific configuration
@@ -167,3 +169,10 @@ then
   export SDKMAN_DIR="/Users/pczora/.sdkman"
   [[ -s "/Users/pczora/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/pczora/.sdkman/bin/sdkman-init.sh"
 fi
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/opt/google-cloud-sdk/completion.zsh.inc'; fi
