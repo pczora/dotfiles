@@ -20,7 +20,7 @@
  '(markdown-command "pandoc")
  '(package-selected-packages
    (quote
-    (org-link-minor-mode exec-path-from-shell company-go 0blayout company markdown-mode go-mode fold-this magit base16-theme))))
+    (dockerfile-mode org-link-minor-mode exec-path-from-shell company-go 0blayout company markdown-mode go-mode fold-this magit base16-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -45,6 +45,8 @@
 
 (global-set-key (kbd "C-x n") 'previous-buffer)
 (global-set-key (kbd "C-x m") 'next-buffer)
+
+(menu-bar-mode -1)
 
 ;; Show line numbers
 (global-linum-mode t)
