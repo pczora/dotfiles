@@ -36,6 +36,7 @@ Plugin 'dracula/vim'
 Plugin 'AlessandroYorba/Alduin'
 Plugin 'github-theme'
 Plugin 'Skittles-Berry'
+Plugin 'chriskempson/base16-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
