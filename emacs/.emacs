@@ -43,8 +43,8 @@
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
-(global-set-key (kbd "C-x n") 'previous-buffer)
-(global-set-key (kbd "C-x m") 'next-buffer)
+(global-set-key (kbd "C-M-n") 'previous-buffer)
+(global-set-key (kbd "C-M-m") 'next-buffer)
 
 (menu-bar-mode -1)
 
@@ -55,10 +55,13 @@
 (global-hl-line-mode t)
 
 ;; Use M-SPC instead of C-SPC for setting marks (since I already use C-SPC as tmux' prefix)
-(global-set-key (kbd "M-SPC") (lambda() (interactive) (push-mark nil nil 1)))
+;; (global-set-key (kbd "M-SPC") (lambda() (interactive) (push-mark nil nil 1)))
 
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ;; Set indent to 2 for JavaScript
 (setq js-indent-level 2)
+
+;; Use '# Header' instead of '# Header #'
+(setq markdown-asymmetric-header 1)
