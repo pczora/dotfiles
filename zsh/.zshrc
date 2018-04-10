@@ -7,7 +7,7 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="dracula"
 
-export EDITOR=vim
+export EDITOR=emacs
 
 # Example aliases
 alias zshconfig="$EDITOR ~/.zshrc"
@@ -42,22 +42,20 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(battery git themes github osx colorize brew cp vagrant mvn kubectl gradle)
+plugins=(battery git themes github colorize cp vagrant mvn kubectl gradle)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-export PATH=/Users/pczora/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH
-#export GOPATH=/usr/local/go/bin
+export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH
+export PATH=$PATH:/usr/local/go/bin
 
 # macOS specific configuration
 if [[ `uname` == 'Darwin' ]]
 then
   export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
   export PATH=$JAVA_HOME/bin:$PATH
-  source /Users/pczora/google-cloud-sdk/path.zsh.inc
-  source /Users/pczora/google-cloud-sdk/completion.zsh.inc
 fi
 
 export LC_ALL=de_DE.UTF-8
@@ -158,12 +156,11 @@ alias gc='git commit'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
-
 export PATH="$HOME/.yarn/bin:$PATH"
 
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-if [[ `uname` == 'Darwin' ]]
-then
-  export SDKMAN_DIR="/Users/pczora/.sdkman"
-  [[ -s "/Users/pczora/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/pczora/.sdkman/bin/sdkman-init.sh"
-fi
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
