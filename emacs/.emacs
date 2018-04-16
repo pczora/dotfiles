@@ -52,6 +52,7 @@
 ;; Disable menubar and toolbar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+
 ;; Show line numbers
 (global-linum-mode t)
 
