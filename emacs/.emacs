@@ -20,7 +20,7 @@
  '(markdown-command "pandoc")
  '(package-selected-packages
    (quote
-    (dockerfile-mode org-link-minor-mode exec-path-from-shell company-go 0blayout company markdown-mode go-mode fold-this magit base16-theme))))
+    (go-rename js2-refactor xref-js2 js2-mode dockerfile-mode org-link-minor-mode exec-path-from-shell company-go 0blayout company markdown-mode go-mode fold-this magit base16-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -40,19 +40,30 @@
         (set (make-local-variable 'company-backends) '(company-go))
         (company-mode)))
 
+(setq gofmt-command "goimports")
+(add-hook 'before-save-hook 'gofmt-before-save)
+
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
 (global-set-key (kbd "C-M-n") 'previous-buffer)
 (global-set-key (kbd "C-M-m") 'next-buffer)
 
+;; Disable menubar and toolbar
 (menu-bar-mode -1)
-
+(tool-bar-mode -1)
 ;; Show line numbers
 (global-linum-mode t)
 
 ;; Highlight current line
 (global-hl-line-mode t)
+
+;; Highlight matching parentheses
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+
+;; Automatically reload changes from disk
+(global-auto-revert-mode t)
 
 ;; Use M-SPC instead of C-SPC for setting marks (since I already use C-SPC as tmux' prefix)
 ;; (global-set-key (kbd "M-SPC") (lambda() (interactive) (push-mark nil nil 1)))
