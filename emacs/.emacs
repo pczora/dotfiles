@@ -38,7 +38,11 @@
 (add-hook 'go-mode-hook
       (lambda ()
         (set (make-local-variable 'company-backends) '(company-go))
-        (company-mode)))
+        (company-mode)
+	(flycheck-mode)
+	(yas-minor-mode)
+	(projectile-mode)
+	(hs-minor-mode)))
 
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
