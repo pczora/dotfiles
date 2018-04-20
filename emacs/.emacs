@@ -17,10 +17,11 @@
  '(custom-safe-themes
    (quote
     ("4feee83c4fbbe8b827650d0f9af4ba7da903a5d117d849a3ccee88262805f40d" default)))
+ '(electric-pair-mode t)
  '(markdown-command "pandoc")
  '(package-selected-packages
    (quote
-    (go-rename js2-refactor xref-js2 js2-mode dockerfile-mode org-link-minor-mode exec-path-from-shell company-go 0blayout company markdown-mode go-mode fold-this magit base16-theme))))
+    (powerline go-rename js2-refactor xref-js2 js2-mode dockerfile-mode org-link-minor-mode exec-path-from-shell company-go 0blayout company markdown-mode go-mode fold-this magit base16-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -42,13 +43,17 @@
 	(flycheck-mode)
 	(yas-minor-mode)
 	(projectile-mode)
-	(hs-minor-mode)))
+	(hs-minor-mode),
+	(electric-pair-mode)))
 
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
 
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
+
+(require 'powerline)
+(powerline-default-theme)
 
 (global-set-key (kbd "C-M-n") 'previous-buffer)
 (global-set-key (kbd "C-M-m") 'next-buffer)
