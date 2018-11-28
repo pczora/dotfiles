@@ -47,7 +47,7 @@ let &t_Co=256
 :set background=dark
 :syntax on
 :set cc=100
-colorscheme dracula
+colorscheme base16-gruvbox-dark-medium
 :set number
 :set nocompatible
 :set hidden
