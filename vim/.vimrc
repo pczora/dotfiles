@@ -142,4 +142,9 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:jsx_ext_required = 0
 
 " Do not check spelling please, thank you very much
-set nospell
+:set nospell
+
+:set guioptions-=m "Don't show menu bar
+:set guioptions-=T "Don't show tool bar
+:set guioptions-=r "Don't show scroll bar (right)
+:set guioptions-=L "Don't show scroll bar (left)
