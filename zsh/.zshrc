@@ -7,7 +7,7 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="spaceship"
 
-export EDITOR=emacs
+export EDITOR=vim
 
 # Example aliases
 alias zshconfig="$EDITOR ~/.zshrc"
