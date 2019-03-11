@@ -23,9 +23,7 @@ Plugin 'tpope/vim-fugitive'
 " coding stuff
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'fatih/vim-go'
-Plugin 'rust-lang/rust.vim'
 Plugin 'mxw/vim-jsx'
-Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'lervag/vim-latex'
@@ -143,7 +141,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:jsx_ext_required = 0
 
 " Do not check spelling please, thank you very much
-:set nospell
+set nospell
+autocmd FileType pandoc setlocal nospell
 
 :set guioptions-=m "Don't show menu bar
 :set guioptions-=T "Don't show tool bar
