@@ -30,6 +30,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'lervag/vim-latex'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'Valloric/YouCompleteMe'
 
 " colorschemes
 Plugin 'dracula/vim'
