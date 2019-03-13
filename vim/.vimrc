@@ -12,15 +12,15 @@ Plugin 'L9'
 Plugin 'unimpaired.vim'
 Plugin 'surround.vim'
 Plugin 'EasyMotion'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'SuperTab'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+" VCS
+Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
-" coding stuff
+" coding
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'fatih/vim-go'
 Plugin 'mxw/vim-jsx'
