@@ -19,6 +19,8 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'editorconfig/editorconfig-vim'
 
 " coding stuff
 Plugin 'scrooloose/nerdcommenter'
@@ -27,7 +29,10 @@ Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'lervag/vim-latex'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'valloric/youcompleteme'
+Plugin 'spf13/vim-autoclose'
+Plugin 'majutsushi/tagbar'
 
 " colorschemes
 Plugin 'dracula/vim'
@@ -142,6 +147,15 @@ let g:jsx_ext_required = 0
 " Do not check spelling please, thank you very much
 set nospell
 autocmd FileType pandoc setlocal nospell
+
+" Use shortcut to toggle paste mode
+set pastetoggle=<F2>
+
+" Use shortcut to toggle Tagbar
+nmap <F3> :TagbarToggle<CR>
+
+" Use shortcut to toggle NERDTree
+nmap <F4> :NERDTreeToggle<CR>
 
 :set guioptions-=m "Don't show menu bar
 :set guioptions-=T "Don't show tool bar
