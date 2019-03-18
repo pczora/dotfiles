@@ -15,6 +15,8 @@ Plugin 'EasyMotion'
 Plugin 'SuperTab'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " VCS
 Plugin 'airblade/vim-gitgutter'
