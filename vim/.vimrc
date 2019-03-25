@@ -37,6 +37,8 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'spf13/vim-autoclose'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'jparise/vim-graphql'
+Plugin 'prettier/vim-prettier'
 
 
 " colorschemes
@@ -151,7 +153,8 @@ let g:jsx_ext_required = 0
 
 " Do not check spelling please, thank you very much
 set nospell
-autocmd FileType pandoc setlocal nospell
+
+let g:vim_markdown_folding_disabled = 1
 
 " Use shortcut to toggle paste mode
 set pastetoggle=<F2>
