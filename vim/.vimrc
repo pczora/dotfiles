@@ -104,6 +104,8 @@ let g:airline_theme = 'base16'
 
 set encoding=utf-8
 
+let g:vim_markdown_folding_disabled = 1
+
 set wrap
 set linebreak
 let &showbreak='↪ '
