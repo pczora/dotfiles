@@ -24,22 +24,24 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
-" coding
+" general coding stuff
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'fatih/vim-go'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
-Plugin 'elzr/vim-json'
-Plugin 'lervag/vim-latex'
-Plugin 'leafgarland/typescript-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'spf13/vim-autoclose'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-syntastic/syntastic'
+
+" JS, React, GraphQL, ...
+Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'mxw/vim-jsx'
 Plugin 'jparise/vim-graphql'
 Plugin 'prettier/vim-prettier'
+Plugin 'elzr/vim-json'
 
+" Go
+Plugin 'fatih/vim-go'
 
 " colorschemes
 Plugin 'dracula/vim'
@@ -148,8 +150,6 @@ let g:syntastic_check_on_wq = 0
 " JS stuffs
 let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 let g:syntastic_javascript_checkers = ['eslint']
-
-let g:jsx_ext_required = 0
 
 " Do not check spelling please, thank you very much
 set nospell
