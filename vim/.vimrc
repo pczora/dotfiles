@@ -58,7 +58,7 @@ filetype plugin indent on    " required
 let &t_Co=256
 :set background=dark
 :syntax on
-:set cc=100
+:set cc=80
 colorscheme base16-gruvbox-dark-medium
 :set number
 :set nocompatible
@@ -104,7 +104,6 @@ let g:latex_complete_recursive_bib=1
 " Airline
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀︎'
-let g:airline_theme = 'base16'
 
 set encoding=utf-8
 
@@ -171,3 +170,8 @@ nmap <F4> :NERDTreeToggle<CR>
 :set guioptions-=T "Don't show tool bar
 :set guioptions-=r "Don't show scroll bar (right)
 :set guioptions-=L "Don't show scroll bar (left)
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
