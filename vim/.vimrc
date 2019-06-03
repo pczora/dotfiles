@@ -19,6 +19,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'ervandew/supertab'
 
 " VCS
 Plugin 'airblade/vim-gitgutter'
@@ -31,6 +32,8 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'spf13/vim-autoclose'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'SirVer/ultisnips'
 
 " JS, React, GraphQL, ...
 Plugin 'pangloss/vim-javascript'
@@ -42,6 +45,7 @@ Plugin 'elzr/vim-json'
 
 " Go
 Plugin 'fatih/vim-go'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 " colorschemes
 Plugin 'dracula/vim'
@@ -55,6 +59,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " }}}
 
+set autowrite
 let &t_Co=256
 :set background=dark
 :syntax on
@@ -118,6 +123,25 @@ set incsearch " Preview as you type "
 set ignorecase " Don't be case sensitive "
 set smartcase " If you type a capital letter, be case sensitive "
 
+" Let YCM and Ultisnips both use TAB
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" Go
+let g:go_doc_keywordprg_enabled = 0
+let g:go_fmt_command = "goimports"
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_deadline = "5s"
+let g:go_auto_type_info = 1
+
 "Disable bells
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
@@ -130,10 +154,13 @@ nnoremap <Leader>t :FufTag<cr>
 "Automatically reload files on change
 set autoread
 
+" Shorten update time (default: 800 ms)
+set updatetime=100
+
 "Switch buffers more conveniently
-"Shift+J & Shift+K
-map <S-K> :bnext<CR>
-map <S-J> :bprevious<CR>
+"Shift+h & Shift+l
+map <S-l> :bnext<CR>
+map <S-h> :bprevious<CR>
 
 "Backspace works for everything in insert mode
 set backspace=2
