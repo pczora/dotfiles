@@ -152,6 +152,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 let g:syntastic_javascript_checkers = ['eslint']
 
+" Because I often type ':W' instead of ':w'
+:command W w
+
 " Do not check spelling please, thank you very much
 set nospell
 
