@@ -168,6 +168,8 @@ nmap <F3> :TagbarToggle<CR>
 
 " Use shortcut to toggle NERDTree
 nmap <F4> :NERDTreeToggle<CR>
+" Close NERDTRee when opening a file
+let g:NERDTreeQuitOnOpen = 1
 
 :set guioptions-=m "Don't show menu bar
 :set guioptions-=T "Don't show tool bar
