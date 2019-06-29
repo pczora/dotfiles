@@ -44,7 +44,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(battery git themes github colorize cp vagrant mvn kubectl gradle z mercurial)
+plugins=(battery git themes github colorize cp vagrant mvn kubectl helm gradle z mercurial)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -61,89 +61,6 @@ fi
 
 export LC_ALL=de_DE.UTF-8
 export LANG=en_US.UTF-8
-
-deb_update() {
-  print "=== Update package lists ==="
-  sudo apt-get update
-}
-
-deb_upgrade() {
-  deb_update
-  print "=== Upgrade system packages ==="
-  sudo apt-get upgrade
-}
-
-deb_install() {
-  sudo apt-get install $1
-}
-
-deb_search() {
-  sudo apt-cache search $1
-}
-
-brew_update() {
-  print "=== Update package lists ==="
-  brew update
-}
-
-brew_upgrade() {
-  brew_update
-  print "=== Upgrade system packages ==="
-  brew upgrade
-}
-
-brew_install() {
-  brew install $1
-}
-
-brew_search() {
-  brew search $1
-}
-
-generic_update() {
-  if [[ `uname` == 'Darwin' ]]
-  then
-    brew_update
-  elif [[ `uname -o` == 'GNU/Linux' ]]
-  then
-    deb_update
-  fi
-}
-
-generic_upgrade() {
-  if [[ `uname` == 'Darwin' ]]
-  then
-    brew_upgrade
-  elif [[ `uname -o` == 'GNU/Linux' ]]
-  then
-    deb_upgrade
-  fi
-}
-
-generic_install() {
-  if [[ `uname` == 'Darwin' ]]
-  then
-    brew_install $1
-  elif [[ `uname -o` == 'GNU/Linux' ]]
-  then
-    deb_install $1
-  fi
-}
-
-generic_search() {
-  if [[ `uname` == 'Darwin' ]]
-  then
-    brew_search $1
-  elif [[ `uname -o` == 'GNU/Linux' ]]
-  then
-    deb_search $1
-  fi
-}
-
-alias update=generic_update
-alias upgrade=generic_upgrade
-alias install=generic_install
-alias search=generic_search
 
 alias vp='vagrant provision'
 alias vu='vagrant up'
@@ -178,6 +95,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
 # ssh over gpg
 # Launch gpg-agent
 gpg-connect-agent /bye
@@ -192,8 +110,19 @@ else
     echo "$(gpgconf --list-dirs agent-ssh-socket) doesn't exist. Is gpg-agent running ?"
 fi
 
+source <(gopass completion bash)
+
+autoload -U compinit
+compinit
+
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH" 
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/mc mc
+function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}

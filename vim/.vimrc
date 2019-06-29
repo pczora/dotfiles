@@ -20,6 +20,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'ervandew/supertab'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " VCS
 Plugin 'airblade/vim-gitgutter'
@@ -179,6 +180,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 let g:syntastic_javascript_checkers = ['eslint']
 
+" Because I often type ':W' instead of ':w'
+:command W w
+
 " Do not check spelling please, thank you very much
 set nospell
 
@@ -192,6 +196,8 @@ nmap <F3> :TagbarToggle<CR>
 
 " Use shortcut to toggle NERDTree
 nmap <F4> :NERDTreeToggle<CR>
+" Close NERDTRee when opening a file
+let g:NERDTreeQuitOnOpen = 1
 
 :set guioptions-=m "Don't show menu bar
 :set guioptions-=T "Don't show tool bar
