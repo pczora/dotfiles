@@ -20,6 +20,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'ervandew/supertab'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " VCS
 Plugin 'airblade/vim-gitgutter'
