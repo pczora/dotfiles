@@ -50,7 +50,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH:~/.bin
+export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH
 
 # macOS specific configuration
 if [[ `uname` == 'Darwin' ]]
@@ -111,7 +111,6 @@ else
 fi
 
 source <(gopass completion bash)
-
 autoload -U compinit
 compinit
 
