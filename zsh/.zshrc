@@ -111,6 +111,7 @@ else
 fi
 
 source <(gopass completion bash)
+source <(velero completion zsh)
 autoload -U compinit
 compinit
 
