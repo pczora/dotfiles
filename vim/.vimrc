@@ -135,6 +135,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " Go
 let g:go_doc_keywordprg_enabled = 0
 let g:go_fmt_command = "goimports"
+let g:go_auto_sameids = 1
 autocmd FileType go nmap <leader>b <Plug>(go-build)
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>t <Plug>(go-test)
@@ -166,6 +167,8 @@ map <S-h> :bprevious<CR>
 "Backspace works for everything in insert mode
 set backspace=2
 
+" Enable neocomplete (i.e. suggest completions w/o needing to us C-x C-o)
+let g:neocomplete#enable_at_startup = 1
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
