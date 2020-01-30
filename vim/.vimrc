@@ -69,6 +69,7 @@ colorscheme base16-gruvbox-dark-medium
 :set number
 :set nocompatible
 :set hidden
+:set foldmethod=syntax
 
 " Tabs & Autoindentation {{{
 :set expandtab     " don't use actual tab character (ctrl-v)
