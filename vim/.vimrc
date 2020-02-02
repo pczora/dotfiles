@@ -137,6 +137,9 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:go_doc_keywordprg_enabled = 0
 let g:go_fmt_command = "goimports"
 let g:go_auto_sameids = 1
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_rename_command='gopls'
 autocmd FileType go nmap <leader>b <Plug>(go-build)
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>t <Plug>(go-test)
@@ -144,6 +147,7 @@ autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_deadline = "5s"
 let g:go_auto_type_info = 1
+let g:go_fmt_experimental = 1 " Prevent VIM from refolding all folds on save
 
 "Disable bells
 set noerrorbells visualbell t_vb=
@@ -197,6 +201,8 @@ set pastetoggle=<F2>
 
 " Use shortcut to toggle Tagbar
 nmap <F3> :TagbarToggle<CR>
+" Don't sort tags in Tagbar by name
+let g:tagbarSort = 0
 
 " Use shortcut to toggle NERDTree
 nmap <F4> :NERDTreeToggle<CR>
