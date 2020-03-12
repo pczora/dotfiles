@@ -52,12 +52,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH
 
-# macOS specific configuration
-if [[ `uname` == 'Darwin' ]]
-then
-  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-  export PATH=$JAVA_HOME/bin:$PATH
-fi
 
 export LC_ALL=de_DE.UTF-8
 export LANG=en_US.UTF-8
@@ -95,23 +89,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
-# ssh over gpg
-# Launch gpg-agent
-gpg-connect-agent /bye
-
-# When using SSH support, use the current TTY for passphrase prompts
-gpg-connect-agent updatestartuptty /bye > /dev/null
-
-# Point the SSH_AUTH_SOCK to the one handled by gpg-agent
-if [ -S $(gpgconf --list-dirs agent-ssh-socket) ]; then
-    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-else
-    echo "$(gpgconf --list-dirs agent-ssh-socket) doesn't exist. Is gpg-agent running ?"
-fi
-
-source <(gopass completion bash)
-source <(velero completion zsh)
 autoload -U compinit
 compinit
 
