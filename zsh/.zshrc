@@ -53,7 +53,6 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH
 
 
-export LC_ALL=de_DE.UTF-8
 export LANG=en_US.UTF-8
 
 alias vp='vagrant provision'
