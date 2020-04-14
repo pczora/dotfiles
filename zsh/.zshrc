@@ -69,7 +69,7 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 export PATH="$HOME/.yarn/bin:$PATH"
 
-export GOROOT="/opt/golang"
+export GOROOT="/usr/local/go"
 export GOPATH="$HOME/go"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 
