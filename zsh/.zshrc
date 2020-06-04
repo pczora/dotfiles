@@ -69,7 +69,12 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 export PATH="$HOME/.yarn/bin:$PATH"
 
-export GOROOT="/opt/golang"
+if [[ `uname` == "Darwin" ]]; then
+  export GOROOT="$(brew --prefix golang)/libexec"
+else 
+  export GOROOT="/opt/golang"
+fi
+
 export GOPATH="$HOME/go"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 
