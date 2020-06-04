@@ -104,6 +104,8 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/mc mc
 function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 
+eval $(thefuck --alias)
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 
 export SDKMAN_DIR="$HOME/.sdkman"
