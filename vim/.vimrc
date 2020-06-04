@@ -21,7 +21,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'ervandew/supertab'
 Plugin 'christoomey/vim-tmux-navigator'
-
+Plugin 'junegunn/fzf.vim'
 " VCS
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
@@ -157,9 +157,9 @@ set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
 "Fuzzyfinder mappings
-nnoremap <Leader>f :FufFile **/<cr>
-nnoremap <Leader>b :FufBuffer<cr>
-nnoremap <Leader>t :FufTag<cr>
+nnoremap <Leader>f :Files<cr>
+nnoremap <Leader>b :Buffers<cr>
+nnoremap <Leader>t :Tags<cr>
 
 "Automatically reload files on change
 set autoread
@@ -221,3 +221,6 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
+
+set rtp+=/usr/local/opt/fzf
+
