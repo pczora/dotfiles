@@ -104,6 +104,7 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/mc mc
 function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 eval $(thefuck --alias)
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
