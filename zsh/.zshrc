@@ -13,6 +13,7 @@ export EDITOR=vim
 
 # Example aliases
 alias zshconfig="$EDITOR ~/.zshrc"
+alias vimconfig="$EDITOR ~/.vimrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
