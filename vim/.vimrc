@@ -40,14 +40,17 @@ Plugin 'majutsushi/tagbar'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
-" JS, React, GraphQL, ...
+" HTML, JS, React, GraphQL, ...
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'jparise/vim-graphql'
 Plugin 'prettier/vim-prettier'
 Plugin 'elzr/vim-json'
+Plugin 'alvan/vim-closetag'
+Plugin 'flowtype/vim-flow'
 
 " Go
 Plugin 'fatih/vim-go'
@@ -65,6 +68,9 @@ Plugin 'chriskempson/base16-vim'
 
 " Ansible
 Plugin 'pearofducks/ansible-vim'
+
+" AVR ASM
+Plugin 'vim-scripts/avrasm.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
