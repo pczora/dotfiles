@@ -34,7 +34,7 @@ Plugin 'tpope/vim-fugitive'
 " general coding stuff
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Shougo/neocomplete.vim'
+"Plugin 'Shougo/neocomplete.vim'
 Plugin 'spf13/vim-autoclose'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-syntastic/syntastic'
@@ -190,7 +190,7 @@ map <S-h> :bprevious<CR>
 set backspace=2
 
 " Enable neocomplete (i.e. suggest completions w/o needing to us C-x C-o)
-let g:neocomplete#enable_at_startup = 1
+"let g:neocomplete#enable_at_startup = 1
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
