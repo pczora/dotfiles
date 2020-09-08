@@ -22,6 +22,11 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'ervandew/supertab'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/fzf.vim'
+
+" Zen
+Plugin 'junegunn/limelight.vim'
+Plugin 'junegunn/goyo.vim'
+
 " VCS
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
