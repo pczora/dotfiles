@@ -53,6 +53,9 @@ Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
+" Rust
+Plugin 'rust-lang/rust.vim'
+
 " colorschemes
 Plugin 'dracula/vim'
 Plugin 'AlessandroYorba/Alduin'
@@ -221,6 +224,9 @@ let g:NERDTreeQuitOnOpen = 1
 :set guioptions-=T "Don't show tool bar
 :set guioptions-=r "Don't show scroll bar (right)
 :set guioptions-=L "Don't show scroll bar (left)
+
+" Rust
+let g:rustfmt_autosave = 1
 
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
