@@ -126,14 +126,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-alias devoktaeks="aws-okta exec eks-team-data-provisioning-dev -- "
-alias devkubectl="aws-okta exec eks-team-data-provisioning-dev -- kubectl"
-alias devfluxctl="devoktaeks fluxctl --k8s-fwd-ns=team-data-provisioning"
-
-alias boxoktaeks="aws-okta exec eks-team-data-provisioning-sandbox -- "
-alias boxkubectl="aws-okta exec eks-team-data-provisioning-sandbox -- kubectl -n team-data-provisioning"
-alias boxfluxctl="boxoktaeks fluxctl --k8s-fwd-ns=team-data-provisioning"
-
 export PATH="/usr/local/opt/helm@2/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
