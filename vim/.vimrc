@@ -20,6 +20,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " UML
@@ -50,6 +51,13 @@ Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 " Rust
 Plugin 'rust-lang/rust.vim'
+
+" HTML, CSS, JS, TS, ...
+Plugin 'pangloss/vim-javascript'
+Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'jparise/vim-graphql'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'MaxMEllon/vim-jsx-pretty'
 
 " colorschemes
 Plugin 'dracula/vim'
