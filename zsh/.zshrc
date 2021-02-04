@@ -50,7 +50,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin/usr/texbin:$PATH
+export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:$PATH
 
 
 export LANG=en_US.UTF-8
@@ -106,7 +106,6 @@ function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-alias python=/usr/local/bin/python3
 
 eval $(thefuck --alias)
 
@@ -125,7 +124,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export PATH="/usr/local/opt/helm@2/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 
@@ -167,3 +165,4 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code     # Exit code section
   char          # Prompt character
 )
+
