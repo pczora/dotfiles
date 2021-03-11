@@ -103,11 +103,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+SPACESHIP_KUBECTL_SHOW=true
+SPACESHIP_KUBECTL_VERSION_SHOW=false
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
   user          # Username section
@@ -136,3 +133,7 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
