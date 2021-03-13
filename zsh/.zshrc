@@ -15,24 +15,6 @@ alias zshconfig="$EDITOR ~/.zshrc"
 alias vimconfig="$EDITOR ~/.vimrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
@@ -44,7 +26,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(battery git themes github colorize cp vagrant mvn kubectl helm gradle z zsh-autosuggestions pyenv)
+plugins=(battery git themes github colorize cp vagrant mvn kubectl helm gradle z zsh-autosuggestions pyenv colored-man-pages aws fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,9 +86,6 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/mc mc
 function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-
 eval $(thefuck --alias)
 
 # >>> conda initialize >>>
@@ -124,37 +103,25 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+SPACESHIP_KUBECTL_SHOW=true
+SPACESHIP_KUBECTL_VERSION_SHOW=false
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
   user          # Username section
   dir           # Current directory section
   host          # Hostname section
   git           # Git section (git_branch + git_status)
-  hg            # Mercurial section (hg_branch  + hg_status)
   package       # Package version
   node          # Node.js section
   ruby          # Ruby section
-  elixir        # Elixir section
-  xcode         # Xcode section
-  swift         # Swift section
   golang        # Go section
-  php           # PHP section
   rust          # Rust section
-  haskell       # Haskell Stack section
-  julia         # Julia section
 #  docker        # Docker section
   aws           # Amazon Web Services section
 #  gcloud        # Google Cloud Platform section
   venv          # virtualenv section
   conda         # conda virtualenv section
   pyenv         # Pyenv section
-  dotnet        # .NET section
-  ember         # Ember.js section
   kubectl       # Kubectl context section
   terraform     # Terraform workspace section
   exec_time     # Execution time
@@ -166,3 +133,7 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
