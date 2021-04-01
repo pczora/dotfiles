@@ -47,6 +47,11 @@ alias gpl='git pull'
 alias gps='git push'
 alias gc='git commit'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+gfc() {
+   git checkout “$(git branch — all | fzf| tr -d ‘[:space:]’)”
+ }
+
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -105,6 +110,9 @@ unset __conda_setup
 
 SPACESHIP_KUBECTL_SHOW=true
 SPACESHIP_KUBECTL_VERSION_SHOW=false
+SPACESHIP_RPROMPT_ORDER=(
+  kubectl
+  )
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
   user          # Username section
@@ -122,7 +130,6 @@ SPACESHIP_PROMPT_ORDER=(
   venv          # virtualenv section
   conda         # conda virtualenv section
   pyenv         # Pyenv section
-  kubectl       # Kubectl context section
   terraform     # Terraform workspace section
   exec_time     # Execution time
   line_sep      # Line break
