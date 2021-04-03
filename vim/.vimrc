@@ -44,6 +44,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'Yggdroot/indentLine'
 
 " Go
 Plugin 'fatih/vim-go'
