@@ -1,3 +1,5 @@
+set nocompatible
+filetype off
 
 " Vundle/Plugins {{{
 " set the runtime path to include Vundle and initialize
@@ -170,6 +172,7 @@ autocmd GUIEnter * set visualbell t_vb=
 nnoremap <Leader>f :Files<cr>
 nnoremap <Leader>b :Buffers<cr>
 nnoremap <Leader>t :Tags<cr>
+nnoremap <Leader>g :Rg<cr>
 
 "Automatically reload files on change
 set autoread
