@@ -48,7 +48,7 @@ alias gps='git push'
 alias gc='git commit'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-function gfc() { git checkout "$(git branch —-all | fzf | tr -d '[:space:]')" }
+function gfc() { git checkout "$(git branch -a | fzf | tr -d '[:space:]')" }
 
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
