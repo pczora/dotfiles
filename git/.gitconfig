@@ -1,3 +1,5 @@
 [user]
 	email = philipp@czora.dev
 	name = Philipp Czora
+[init]
+	defaultBranch = main
