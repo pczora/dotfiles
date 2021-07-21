@@ -2,10 +2,10 @@ font:
   size: 10
   use_thin_strokes: true
   normal:
-    family: Iosevka Nerd Font Mono
-    style: Regular
+    family: BlexMono Nerd Font
+    style: Book
   bold:
-    family: Iosevka Nerd Font Mono
+    family: BlexMono Nerd Font
     style: Bold
 
 #alt_send_esc: true
