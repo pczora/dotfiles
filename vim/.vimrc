@@ -51,6 +51,7 @@ Plugin 'Yggdroot/indentLine'
 " Go
 Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'buoto/gotests-vim'
 
 " Rust
 Plugin 'rust-lang/rust.vim'
@@ -159,6 +160,8 @@ autocmd FileType go nmap <leader>gb <Plug>(go-build)
 autocmd FileType go nmap <leader>gr <Plug>(go-run)
 autocmd FileType go nmap <leader>gt <Plug>(go-test)
 autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
+autocmd FileType go nmap gt :GoAlternate<cr>
+
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_deadline = "5s"
 let g:go_auto_type_info = 1

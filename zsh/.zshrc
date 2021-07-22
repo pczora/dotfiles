@@ -57,7 +57,7 @@ export PATH="$HOME/.yarn/bin:$PATH"
 if [[ `uname` == "Darwin" ]]; then
   export GOROOT="$(brew --prefix golang)/libexec"
 else 
-  export GOROOT="/opt/golang"
+  export GOROOT="/opt/go"
 fi
 
 export GOPATH="$HOME/go"
