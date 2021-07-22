@@ -215,6 +215,9 @@ let g:NERDTreeQuitOnOpen = 1
 :set guioptions-=r "Don't show scroll bar (right)
 :set guioptions-=L "Don't show scroll bar (left)
 
+" Do not add a newline at the end of the file, because it bit me at least once
+:set nofixendofline
+
 " Rust
 let g:rustfmt_autosave = 1
 
