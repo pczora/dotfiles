@@ -77,12 +77,6 @@ export NVM_DIR="$HOME/.nvm"
 autoload -U compinit
 compinit
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
-
 PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH" 
 
 autoload -U +X bashcompinit && bashcompinit
@@ -125,7 +119,7 @@ SPACESHIP_PROMPT_ORDER=(
 #  docker        # Docker section
   aws           # Amazon Web Services section
 #  gcloud        # Google Cloud Platform section
-  venv          # virtualenv section
+  #venv          # virtualenv section
   conda         # conda virtualenv section
   pyenv         # Pyenv section
   terraform     # Terraform workspace section

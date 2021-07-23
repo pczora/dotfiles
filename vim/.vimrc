@@ -218,6 +218,9 @@ let g:NERDTreeQuitOnOpen = 1
 :set guioptions-=r "Don't show scroll bar (right)
 :set guioptions-=L "Don't show scroll bar (left)
 
+" Do not add a newline at the end of the file, because it bit me at least once
+:set nofixendofline
+
 " Rust
 let g:rustfmt_autosave = 1
 
@@ -382,3 +385,9 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+if has('termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
