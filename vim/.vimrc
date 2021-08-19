@@ -69,6 +69,7 @@ Plugin 'AlessandroYorba/Alduin'
 Plugin 'github-theme'
 Plugin 'Skittles-Berry'
 Plugin 'chriskempson/base16-vim'
+Plugin 'arcticicestudio/nord-vim'
 
 " Ansible
 Plugin 'pearofducks/ansible-vim'
@@ -86,7 +87,7 @@ let &t_Co=256
 :set background=dark
 :syntax on
 :set cc=80
-colorscheme base16-gruvbox-dark-medium
+:colorscheme nord
 :set number
 :set nocompatible
 :set hidden
@@ -223,11 +224,6 @@ let g:NERDTreeQuitOnOpen = 1
 
 " Rust
 let g:rustfmt_autosave = 1
-
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
 
 set rtp+=/usr/local/opt/fzf
 
