@@ -1,5 +1,3 @@
-set nocompatible
-filetype off
 
 " Vundle/Plugins {{{
 " set the runtime path to include Vundle and initialize
@@ -51,7 +49,6 @@ Plugin 'Yggdroot/indentLine'
 " Go
 Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'buoto/gotests-vim'
 
 " Rust
 Plugin 'rust-lang/rust.vim'
@@ -87,7 +84,7 @@ let &t_Co=256
 :set background=dark
 :syntax on
 :set cc=80
-:colorscheme nord
+colorscheme base16-gruvbox-dark-medium
 :set number
 :set nocompatible
 :set hidden
@@ -109,7 +106,7 @@ inoremap jk ^[l
 
 " vim-latex
 " " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-filetype plugin on
+"filetype plugin on
 "
 " " IMPORTANT: grep will sometimes skip displaying the file name if you
 " " search in a singe file. This will confuse Latex-Suite. Set your grep
@@ -117,7 +114,7 @@ filetype plugin on
 set grepprg=grep\ -nH\ $*
 "
 " " OPTIONAL: This enables automatic indentation as you type.
-filetype indent on
+"filetype indent on
 "
 " " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults
 " to
@@ -161,8 +158,6 @@ autocmd FileType go nmap <leader>gb <Plug>(go-build)
 autocmd FileType go nmap <leader>gr <Plug>(go-run)
 autocmd FileType go nmap <leader>gt <Plug>(go-test)
 autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
-autocmd FileType go nmap gt :GoAlternate<cr>
-
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_deadline = "5s"
 let g:go_auto_type_info = 1
@@ -219,11 +214,13 @@ let g:NERDTreeQuitOnOpen = 1
 :set guioptions-=r "Don't show scroll bar (right)
 :set guioptions-=L "Don't show scroll bar (left)
 
-" Do not add a newline at the end of the file, because it bit me at least once
-:set nofixendofline
-
 " Rust
 let g:rustfmt_autosave = 1
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 set rtp+=/usr/local/opt/fzf
 
@@ -382,8 +379,4 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-if has('termguicolors')
-  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+colorscheme nord
