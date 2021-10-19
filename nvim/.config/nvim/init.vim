@@ -12,7 +12,7 @@ Plugin 'L9'
 
 Plugin 'unimpaired.vim'
 Plugin 'surround.vim'
-Plugin 'EasyMotion'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'godlygeek/tabular'
