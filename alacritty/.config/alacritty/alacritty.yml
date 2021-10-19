@@ -11,6 +11,11 @@ font:
     x: 0
     y: 1
 
+cursor:
+  style:
+    blinking: Always
+    blink_interval: 100 
+
 #alt_send_esc: true
 key_bindings:
 - { key: Space,     mods: Option,    chars: "\x1b\x20"  }
