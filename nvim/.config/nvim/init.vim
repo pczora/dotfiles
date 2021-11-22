@@ -150,7 +150,8 @@ let g:UltiSnipsExpandTrigger = "<nop>"
 
 " Go
 let g:go_doc_keywordprg_enabled = 0
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "gopls"
+let g:go_fmt_fail_silently = 0
 let g:go_auto_sameids = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
