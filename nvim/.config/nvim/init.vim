@@ -45,6 +45,7 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Yggdroot/indentLine'
+Plugin 'mileszs/ack.vim'
 
 " Go
 Plugin 'fatih/vim-go'
@@ -223,6 +224,10 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 set rtp+=/usr/local/opt/fzf
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " COC
 " TextEdit might fail if hidden is not set.
