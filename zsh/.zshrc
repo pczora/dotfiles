@@ -15,6 +15,12 @@ alias zshconfig="$EDITOR ~/.zshrc"
 alias vimconfig="$EDITOR ~/.vimrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
+fr() {
+  candidates=$(find ~/repos/synaos -maxdepth 1 -type d & find ~/repos -maxdepth 1 -type d)
+  repo=$(echo $candidates | fzf)
+  cd $repo
+}
+
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
