@@ -34,6 +34,7 @@ Plugin 'junegunn/goyo.vim'
 " VCS
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'stsewd/fzf-checkout.vim'
 
 " general coding stuff
 Plugin 'dense-analysis/ale'
@@ -72,8 +73,14 @@ Plugin 'arcticicestudio/nord-vim'
 " Ansible
 Plugin 'pearofducks/ansible-vim'
 
+" Terraform
+Plugin 'hashivim/vim-terraform'
+
 " AVR ASM
 Plugin 'vim-scripts/avrasm.vim'
+
+" Ledger
+Plugin 'ledger/vim-ledger'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -174,6 +181,9 @@ nnoremap <Leader>f :Files<cr>
 nnoremap <Leader>b :Buffers<cr>
 nnoremap <Leader>t :Tags<cr>
 nnoremap <Leader>g :Rg<cr>
+
+nnoremap <Leader>gib :GBranches<cr>
+command Gib GBranches
 
 "Automatically reload files on change
 set autoread
