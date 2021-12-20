@@ -47,6 +47,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Yggdroot/indentLine'
 Plugin 'mileszs/ack.vim'
+Plugin 'dag/vim-fish'
 
 " Go
 Plugin 'fatih/vim-go'
