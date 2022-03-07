@@ -1,4 +1,3 @@
-
 " Plugins {{{
 call plug#begin()
 
@@ -7,8 +6,8 @@ let g:ale_disable_lsp = 1
 " Utility functions/stuff used by other plugins
 Plug 'L9'
 
-Plug 'unimpaired.vim'
-Plug 'surround.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -63,8 +62,6 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 " colorschemes
 Plug 'dracula/vim'
 Plug 'AlessandroYorba/Alduin'
-Plug 'github-theme'
-Plug 'Skittles-Berry'
 Plug 'chriskempson/base16-vim'
 Plug 'arcticicestudio/nord-vim'
 
