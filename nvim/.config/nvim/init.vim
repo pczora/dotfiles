@@ -1,90 +1,87 @@
 
-" Vundle/Plugins {{{
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Plugins {{{
+call plug#begin()
 
 let g:ale_disable_lsp = 1
-Plugin 'gmarik/Vundle.vim'
 
 " Utility functions/stuff used by other plugins
-Plugin 'L9'
+Plug 'L9'
 
-Plugin 'unimpaired.vim'
-Plugin 'surround.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'godlygeek/tabular'
-Plugin 'scrooloose/nerdtree'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plug 'unimpaired.vim'
+Plug 'surround.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'godlygeek/tabular'
+Plug 'scrooloose/nerdtree'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 " UML
-Plugin 'scrooloose/vim-slumlord'
-Plugin 'aklt/plantuml-syntax'
+Plug 'scrooloose/vim-slumlord'
+Plug 'aklt/plantuml-syntax'
 
 " Zen
-Plugin 'junegunn/limelight.vim'
-Plugin 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
 
 " VCS
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'stsewd/fzf-checkout.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'stsewd/fzf-checkout.vim'
 
 " general coding stuff
-Plugin 'dense-analysis/ale'
-Plugin 'neoclide/coc.nvim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'spf13/vim-autoclose'
-Plugin 'majutsushi/tagbar'
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'Yggdroot/indentLine'
-Plugin 'mileszs/ack.vim'
-Plugin 'dag/vim-fish'
+Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'spf13/vim-autoclose'
+Plug 'majutsushi/tagbar'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'Yggdroot/indentLine'
+Plug 'mileszs/ack.vim'
+Plug 'dag/vim-fish'
 
 " Go
-Plugin 'fatih/vim-go'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plug 'fatih/vim-go'
+Plug 'nsf/gocode', {'rtp': 'vim/'}
 
 " Rust
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 
 " HTML, CSS, JS, TS, ...
-Plugin 'pangloss/vim-javascript'
-Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'jparise/vim-graphql'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'MaxMEllon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'jparise/vim-graphql'
+Plug 'leafgarland/typescript-vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
 
 " colorschemes
-Plugin 'dracula/vim'
-Plugin 'AlessandroYorba/Alduin'
-Plugin 'github-theme'
-Plugin 'Skittles-Berry'
-Plugin 'chriskempson/base16-vim'
-Plugin 'arcticicestudio/nord-vim'
+Plug 'dracula/vim'
+Plug 'AlessandroYorba/Alduin'
+Plug 'github-theme'
+Plug 'Skittles-Berry'
+Plug 'chriskempson/base16-vim'
+Plug 'arcticicestudio/nord-vim'
 
 " Ansible
-Plugin 'pearofducks/ansible-vim'
+Plug 'pearofducks/ansible-vim'
 
 " Terraform
-Plugin 'hashivim/vim-terraform'
+Plug 'hashivim/vim-terraform'
 
 " AVR ASM
-Plugin 'vim-scripts/avrasm.vim'
+Plug 'vim-scripts/avrasm.vim'
 
 " Ledger
-Plugin 'ledger/vim-ledger'
+Plug 'ledger/vim-ledger'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 " }}}
 
@@ -152,9 +149,6 @@ let &showbreak='↪ '
 set incsearch " Preview as you type "
 set ignorecase " Don't be case sensitive "
 set smartcase " If you type a capital letter, be case sensitive "
-
-" Ultisnips snippets are handled by coc
-let g:UltiSnipsExpandTrigger = "<nop>"
 
 " Go
 let g:go_doc_keywordprg_enabled = 0
