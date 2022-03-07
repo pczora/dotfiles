@@ -11,9 +11,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'windwp/nvim-autopairs'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " UML
 Plug 'scrooloose/vim-slumlord'
@@ -168,14 +168,12 @@ let g:go_fmt_experimental = 1 " Prevent VIM from refolding all folds on save
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-"Fuzzyfinder mappings
-nnoremap <Leader>f :Files<cr>
-nnoremap <Leader>b :Buffers<cr>
-nnoremap <Leader>t :Tags<cr>
-nnoremap <Leader>g :Rg<cr>
-
-nnoremap <Leader>gib :GBranches<cr>
-command Gib GBranches
+" Telescope mappings
+nnoremap <Leader>ff <cmd> Telescope find_files<cr>
+nnoremap <Leader>fb <cmd> Telescope buffers<cr>
+nnoremap <Leader>ft <cmd> Telescope tags<cr>
+nnoremap <Leader>fg <cmd> Telescope live_grep<cr>
+nnoremap <Leader>fb <cmd> Telescope git_branches<cr>
 
 "Automatically reload files on change
 set autoread
