@@ -302,6 +302,8 @@ lua <<EOF
   require('lspconfig')['rust_analyzer'].setup {
     capabilities = capabilities
   }
+  require('lspconfig')['yamlls'].setup {
+  }
   require('lspconfig')['sumneko_lua'].setup {
     settings = {
       runtime = {
