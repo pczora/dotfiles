@@ -304,6 +304,10 @@ lua <<EOF
   }
   require('lspconfig')['yamlls'].setup {
   }
+  require('lspconfig')['terraformls'].setup {
+  }
+  require('lspconfig')['bashls'].setup {
+  }
   require('lspconfig')['sumneko_lua'].setup {
     settings = {
       runtime = {
