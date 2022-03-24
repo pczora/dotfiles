@@ -14,6 +14,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " UML
 Plug 'scrooloose/vim-slumlord'
@@ -87,7 +88,6 @@ let &t_Co=256
 :set background=dark
 :syntax on
 :set cc=80
-colorscheme base16-gruvbox-dark-medium
 :set number
 :set nocompatible
 :set hidden
@@ -323,4 +323,5 @@ lua <<EOF
   local cmp_autopairs = require('nvim-autopairs.completion.cmp')
   local cmp = require('cmp')
   cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+  require'nvim-treesitter.configs'.setup{}
 EOF
