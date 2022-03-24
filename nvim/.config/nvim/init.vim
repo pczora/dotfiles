@@ -351,4 +351,5 @@ lua <<EOF
   local cmp = require('cmp')
   cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
   require'nvim-treesitter.configs'.setup{}
+  require("luasnip.loaders.from_vscode").lazy_load()
 EOF
