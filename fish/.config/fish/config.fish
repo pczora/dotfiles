@@ -6,7 +6,7 @@ end
 status --is-interactive; and . (pyenv init - | psub)
 
 thefuck --alias | source
-
+alias k=kubectl
 switch (uname) 
   case Darwin
     fish_add_path /usr/local/opt/curl/bin
