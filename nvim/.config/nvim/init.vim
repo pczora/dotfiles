@@ -231,6 +231,7 @@ if executable('ag')
 endif
 
 colorscheme nord
+let g:limelight_conceal_ctermfg = 'gray'
 
 " cmp-nvim
 set completeopt=menu,menuone,noselect
