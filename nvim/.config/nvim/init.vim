@@ -7,7 +7,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
-Plug 'scrooloose/nerdtree'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
@@ -206,10 +207,7 @@ nmap <F3> :TagbarToggle<CR>
 " Don't sort tags in Tagbar by name
 let g:tagbarSort = 0
 
-" Use shortcut to toggle NERDTree
-nmap <F4> :NERDTreeToggle<CR>
-" Close NERDTRee when opening a file
-let g:NERDTreeQuitOnOpen = 1
+nmap <F4> :NvimTreeToggle<CR>
 
 :set guioptions-=m "Don't show menu bar
 :set guioptions-=T "Don't show tool bar
@@ -323,7 +321,7 @@ lua <<EOF
       { name = 'cmdline' }
     })
   })
-
+  require'nvim-tree'.setup()
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
