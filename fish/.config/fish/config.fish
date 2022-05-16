@@ -6,7 +6,18 @@ end
 status --is-interactive; and . (pyenv init - | psub)
 
 thefuck --alias | source
-alias k=kubectl
+alias k='kubectl'
+alias kd='kubectl describe'
+alias kdp='kubectl describe pod'
+alias kdd='kubectl describe deployment'
+alias kgp='kubectl get pod'
+alias kgd='kubectl get deployment'
+alias kl='kubectl logs'
+alias klf='kubectl logs -f'
+
+alias cat='bat'
+alias ls='exa'
+
 switch (uname) 
   case Darwin
     fish_add_path /usr/local/opt/curl/bin
