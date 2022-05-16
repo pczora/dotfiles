@@ -1,5 +1,15 @@
 [user]
-	email = philipp@czora.dev
-	name = Philipp Czora
+  email = philipp@czora.dev
+  name = Philipp Czora
 [init]
-	defaultBranch = main
+  defaultBranch = main
+[diff]
+  tool = vimdiff
+[pull]
+  rebase = false
+[push]
+  default = current
+[merge]
+  tool = vimdiff
+[includeIf "gitdir:~/repos/synaos/"]
+    path = ~/.gitconfig_work
