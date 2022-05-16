@@ -2,19 +2,19 @@ font:
   size: 14
   use_thin_strokes: true
   normal:
-    family: BlexMono Nerd Font
-    style: Book
+    family: Inconsolata Nerd Font
+    style: Regular
   bold:
-    family: BlexMono Nerd Font
+    family: Inconsolata Nerd Font
     style: Bold
   offset:
     x: 0
-    y: 1
+    y: 0
 
 cursor:
   style:
     blinking: Always
-    blink_interval: 100 
+  blink_interval: 333 
 
 #alt_send_esc: true
 key_bindings:
