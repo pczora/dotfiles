@@ -3,7 +3,9 @@ if status is-interactive
 end
 
 # pyenv setup
-status --is-interactive; and . (pyenv init - | psub)
+if type -q pyenv
+  status --is-interactive; and . (pyenv init - | psub)
+end
 
 thefuck --alias | source
 alias k='kubectl'
