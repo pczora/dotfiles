@@ -218,6 +218,10 @@ nmap <F4> :NvimTreeToggle<CR>
 :set guioptions-=r "Don't show scroll bar (right)
 :set guioptions-=L "Don't show scroll bar (left)
 
+ "nerdcommenter
+let g:NERDCreateDefaultMappings = 0
+noremap <leader>c<space> <plug>NERDCommenterToggle
+
 " Rust
 let g:rustfmt_autosave = 1
 
