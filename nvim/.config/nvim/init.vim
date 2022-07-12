@@ -79,6 +79,9 @@ Plug 'vim-scripts/avrasm.vim'
 " Ledger
 Plug 'ledger/vim-ledger'
 
+" Java
+Plug 'mfussenegger/nvim-jdtls'
+
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
