@@ -240,7 +240,7 @@ colorscheme nord
 let g:limelight_conceal_ctermfg = 'gray'
 
 " cmp-nvim
-set completeopt=menu,menuone,noselect
+set completeopt=menuone,noselect,noinsert
 
 lua <<EOF
 require('config')
