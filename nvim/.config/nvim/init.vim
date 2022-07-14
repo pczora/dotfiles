@@ -180,6 +180,12 @@ nnoremap <Leader>ft <cmd> Telescope tags<cr>
 nnoremap <Leader>fg <cmd> Telescope live_grep<cr>
 nnoremap <Leader>fb <cmd> Telescope git_branches<cr>
 
+" fugitive mappings
+nnoremap <Leader>gc <cmd> Git commit<cr>
+nnoremap <Leader>gs <cmd> Git<cr>
+nnoremap <Leader>gps <cmd> Git push<cr>
+nnoremap <Leader>gpl <cmd> Git pull<cr>
+
 "Automatically reload files on change
 set autoread
 
