@@ -79,6 +79,9 @@ Plug 'vim-scripts/avrasm.vim'
 " Ledger
 Plug 'ledger/vim-ledger'
 
+" Java
+Plug 'mfussenegger/nvim-jdtls'
+
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -177,6 +180,12 @@ nnoremap <Leader>ft <cmd> Telescope tags<cr>
 nnoremap <Leader>fg <cmd> Telescope live_grep<cr>
 nnoremap <Leader>fb <cmd> Telescope git_branches<cr>
 
+" fugitive mappings
+nnoremap <Leader>gc <cmd> Git commit<cr>
+nnoremap <Leader>gs <cmd> Git<cr>
+nnoremap <Leader>gps <cmd> Git push<cr>
+nnoremap <Leader>gpl <cmd> Git pull<cr>
+
 "Automatically reload files on change
 set autoread
 
@@ -215,6 +224,10 @@ nmap <F4> :NvimTreeToggle<CR>
 :set guioptions-=r "Don't show scroll bar (right)
 :set guioptions-=L "Don't show scroll bar (left)
 
+ "nerdcommenter
+let g:NERDCreateDefaultMappings = 0
+noremap <leader>c<space> <plug>NERDCommenterToggle
+
 " Rust
 let g:rustfmt_autosave = 1
 
@@ -233,7 +246,7 @@ colorscheme nord
 let g:limelight_conceal_ctermfg = 'gray'
 
 " cmp-nvim
-set completeopt=menu,menuone,noselect
+set completeopt=menuone,noselect,noinsert
 
 lua <<EOF
 require('config')

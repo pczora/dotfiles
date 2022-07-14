@@ -12,8 +12,17 @@ alias k='kubectl'
 alias kd='kubectl describe'
 alias kdp='kubectl describe pod'
 alias kdd='kubectl describe deployment'
-alias kgp='kubectl get pod'
-alias kgd='kubectl get deployment'
+alias kg='kubectl get'
+alias kga='kubectl get -A'
+alias kgp='kubectl get pods'
+alias kgpa='kubectl get pods -A'
+alias kgpn='kubectl get pods -n'
+alias kgn='kubectl get nodes'
+alias kgd='kubectl get deployments'
+alias kgs='kubectl get services'
+alias kgi='kubectl get ingresses'
+alias kgpv='kubectl get persistentvolumes'
+alias kgpvc='kubectl get persistentvolumeclaims'
 alias kl='kubectl logs'
 alias klf='kubectl logs -f'
 
@@ -37,3 +46,4 @@ complete --command aws --no-files --arguments '(begin; set --local --export COMP
 
 fish_add_path $HOME/.krew/bin
 fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/go/bin
