@@ -110,7 +110,7 @@
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   end
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  local servers = { 'rust_analyzer', 'terraformls', 'gopls', 'sumneko_lua', 'ansiblels', 'tsserver' }
+  local servers = { 'rust_analyzer', 'terraformls', 'gopls', 'sumneko_lua', 'ansiblels', 'tsserver', 'texlab'}
   for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup {
       on_attach = on_attach
