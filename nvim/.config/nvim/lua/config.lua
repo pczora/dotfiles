@@ -200,4 +200,6 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 require'nvim-treesitter.configs'.setup{}
 require("luasnip.loaders.from_vscode").lazy_load()
-
+vim.g.symbols_outline = {
+  auto_preview = false
+}

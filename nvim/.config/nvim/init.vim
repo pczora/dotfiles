@@ -38,7 +38,6 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'majutsushi/tagbar'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'mileszs/ack.vim'
@@ -46,6 +45,7 @@ Plug 'dag/vim-fish'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
+Plug 'simrat39/symbols-outline.nvim'
 
 " Go
 Plug 'fatih/vim-go'
@@ -212,10 +212,8 @@ let g:vim_markdown_folding_disabled = 1
 " Use shortcut to toggle paste mode
 set pastetoggle=<F2>
 
-" Use shortcut to toggle Tagbar
-nmap <F3> :TagbarToggle<CR>
-" Don't sort tags in Tagbar by name
-let g:tagbarSort = 0
+" Use shortcut to toggle symbols-outline
+nmap <F3> :SymbolsOutline<CR>
 
 nmap <F4> :NvimTreeToggle<CR>
 
