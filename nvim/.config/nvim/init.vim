@@ -9,6 +9,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
@@ -178,7 +179,7 @@ nnoremap <Leader>ff <cmd> Telescope find_files<cr>
 nnoremap <Leader>fb <cmd> Telescope buffers<cr>
 nnoremap <Leader>ft <cmd> Telescope tags<cr>
 nnoremap <Leader>fg <cmd> Telescope live_grep<cr>
-nnoremap <Leader>fb <cmd> Telescope git_branches<cr>
+nnoremap <Leader>fg <cmd> Telescope git_branches<cr>
 
 " fugitive mappings
 nnoremap <Leader>gc <cmd> Git commit<cr>

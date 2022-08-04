@@ -150,3 +150,5 @@ require("luasnip.loaders.from_vscode").lazy_load()
 vim.g.symbols_outline = {
   auto_preview = false
 }
+vim.opt.termguicolors = true
+require("bufferline").setup{}
