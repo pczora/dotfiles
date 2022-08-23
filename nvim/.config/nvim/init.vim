@@ -170,6 +170,7 @@ let g:go_metalinter_autosave = 1
 let g:go_metalinter_deadline = "5s"
 let g:go_auto_type_info = 1
 let g:go_fmt_experimental = 1 " Prevent VIM from refolding all folds on save
+let g:go_metalinter_command = "golangci-lint"
 
 "Disable bells
 set noerrorbells visualbell t_vb=
