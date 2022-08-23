@@ -32,13 +32,16 @@ alias ls='exa'
 switch (uname -a) 
   case "*Darwin*"
     fish_add_path /usr/local/opt/curl/bin
-case "*microsoft*"
-  set -gx DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-  set -gx LIBGL_ALWAYS_INDIRECT 1
-  set -gx XDG_RUNTIME_DIR /home/pcz/repos/
-  set -gx RUNLEVEL 3
+    set -x GOPATH (go env GOPATH)
+    set -x GOROOT (go env GOROOT)
+    set PATH $GOPATH/bin $GOROOT/bin $PATH
+  case "*microsoft*"
+    set -gx DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+    set -gx LIBGL_ALWAYS_INDIRECT 1
+    set -gx XDG_RUNTIME_DIR /home/pcz/repos/
+    set -gx RUNLEVEL 3
 
-  alias rust-analyzer='rustup run nightly rust-analyzer'
+    alias rust-analyzer='rustup run nightly rust-analyzer'
 end
 
 # Enable AWS CLI autocompletion: github.com/aws/aws-cli/issues/1079
