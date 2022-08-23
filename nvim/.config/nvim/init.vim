@@ -178,10 +178,12 @@ autocmd GUIEnter * set visualbell t_vb=
 
 " Telescope mappings
 nnoremap <Leader>ff <cmd> Telescope find_files<cr>
-nnoremap <Leader>fb <cmd> Telescope buffers<cr>
+nnoremap <Leader>fbu <cmd> Telescope buffers<cr>
 nnoremap <Leader>ft <cmd> Telescope tags<cr>
 nnoremap <Leader>fg <cmd> Telescope live_grep<cr>
-nnoremap <Leader>fg <cmd> Telescope git_branches<cr>
+nnoremap <Leader>fbr <cmd> Telescope git_branches<cr>
+nnoremap <Leader>fr <cmd> Telescop lsp_references<cr>
+nnoremap <Leader>fd <cmd> Telescop lsp_references<cr>
 
 " fugitive mappings
 nnoremap <Leader>gc <cmd> Git commit<cr>
