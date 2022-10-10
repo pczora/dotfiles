@@ -8,6 +8,8 @@ if type -q pyenv
 end
 
 thefuck --alias | source
+
+# kubectl aliases
 alias k='kubectl'
 alias kd='kubectl describe'
 alias kdp='kubectl describe pod'
@@ -25,6 +27,12 @@ alias kgpv='kubectl get persistentvolumes'
 alias kgpvc='kubectl get persistentvolumeclaims'
 alias kl='kubectl logs'
 alias klf='kubectl logs -f'
+
+# Git aliases
+alias g='git'
+alias gpl='git pull'
+alias gps='git push'
+alias gco='git commit'
 
 alias cat='bat'
 alias ls='exa'
