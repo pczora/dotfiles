@@ -184,7 +184,9 @@ nnoremap <Leader>ft <cmd> Telescope tags<cr>
 nnoremap <Leader>fg <cmd> Telescope live_grep<cr>
 nnoremap <Leader>fbr <cmd> Telescope git_branches<cr>
 nnoremap <Leader>fr <cmd> Telescop lsp_references<cr>
-nnoremap <Leader>fd <cmd> Telescop lsp_references<cr>
+nnoremap <Leader>fd <cmd> Telescop lsp_definitions<cr>
+nnoremap <Leader>fi <cmd> Telescop lsp_implementations<cr>
+nnoremap <Leader>fs <cmd> Telescop lsp_dynamic_workspace_symbols<cr>
 
 " fugitive mappings
 nnoremap <Leader>gc <cmd> Git commit<cr>
