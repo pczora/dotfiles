@@ -52,6 +52,7 @@ Plug 'simrat39/symbols-outline.nvim'
 " Go
 Plug 'fatih/vim-go'
 Plug 'nsf/gocode', {'rtp': 'vim/'}
+Plug 'sebdah/vim-delve'
 
 " Rust
 Plug 'rust-lang/rust.vim'
