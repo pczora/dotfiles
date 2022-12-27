@@ -69,6 +69,7 @@ Plug 'dracula/vim'
 Plug 'AlessandroYorba/Alduin'
 Plug 'chriskempson/base16-vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'rebelot/kanagawa.nvim'
 
 " Ansible
 Plug 'pearofducks/ansible-vim'
@@ -248,7 +249,7 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-colorscheme nord
+colorscheme kanagawa
 let g:limelight_conceal_ctermfg = 'gray'
 
 " cmp-nvim
