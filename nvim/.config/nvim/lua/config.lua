@@ -1,4 +1,4 @@
-local has_words_before = function()
+laocal has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
@@ -112,8 +112,8 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local servers = { 'terraformls', 'sumneko_lua', 'ansiblels', 'tsserver', 'jedi_language_server', 'texlab'}
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local servers = { 'terraformls', 'lua_ls', 'ansiblels', 'tsserver', 'jedi_language_server', 'texlab'}
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach
@@ -134,7 +134,7 @@ require('lspconfig')['rust_analyzer'].setup {
 }
 require('lspconfig')['bashls'].setup {
 }
-require('lspconfig')['sumneko_lua'].setup {
+require('lspconfig')['lua_ls'].setup {
   settings = {
     Lua = {
       diagnostics = {
