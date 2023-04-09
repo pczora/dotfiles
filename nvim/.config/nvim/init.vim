@@ -3,7 +3,8 @@ call plug#begin()
 
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
+Plug 'ggandor/leap.nvim'
+Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
@@ -18,6 +19,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'mhinz/vim-startify'
+Plug 'folke/which-key.nvim'
 
 " UML
 Plug 'scrooloose/vim-slumlord'
@@ -50,6 +52,7 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+Plug 'sindrets/diffview.nvim'
 
 " Go
 Plug 'fatih/vim-go'

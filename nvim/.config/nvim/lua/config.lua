@@ -192,3 +192,11 @@ vim.diagnostic.config({
   virtual_text = false
 })
 vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, {desc = "Toggle lsp_lines"})
+
+require('leap').add_default_mappings()
+
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+require("which-key").setup{}
+
+require('diffview').setup{}
