@@ -3,7 +3,8 @@ call plug#begin()
 
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
+Plug 'ggandor/leap.nvim'
+Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
@@ -19,6 +20,7 @@ Plug 'nvim-telescope/telescope.nvim', {'branch': '0.1.x'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'mhinz/vim-startify'
 Plug 'dstein64/vim-startuptime'
+Plug 'folke/which-key.nvim'
 
 " UML
 Plug 'scrooloose/vim-slumlord'
@@ -29,7 +31,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 
 " VCS
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'stsewd/fzf-checkout.vim'
 
@@ -50,6 +52,9 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'ThePrimeagen/refactoring.nvim'
+Plug 'folke/trouble.nvim'
+Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+Plug 'sindrets/diffview.nvim'
 
 " Go
 Plug 'fatih/vim-go'
@@ -166,6 +171,7 @@ let g:go_auto_sameids = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_rename_command='gopls'
+<<<<<<< HEAD
 autocmd FileType go nmap <leader>cb <Plug>(go-build)
 autocmd FileType go nmap <leader>cr <Plug>(go-run)
 autocmd FileType go nmap <leader>ct <Plug>(go-test)
@@ -173,6 +179,14 @@ autocmd FileType go nmap <leader>cc <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <leader>cl <Plug>(go-metalinter)
 let g:go_metalinter_autosave = 0
 let g:go_metalinter_deadline = "10s"
+=======
+autocmd FileType go nmap <leader>gb <Plug>(go-build)
+autocmd FileType go nmap <leader>gr <Plug>(go-run)
+autocmd FileType go nmap <leader>gt <Plug>(go-test)
+autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
+let g:go_metalinter_autosave = 0
+let g:go_metalinter_deadline = "5s"
+>>>>>>> bf87ba9eef86b5fd2976ffaf1808a932b6a1eb38
 let g:go_auto_type_info = 1
 let g:go_fmt_experimental = 1 " Prevent VIM from refolding all folds on save
 let g:go_metalinter_command = "golangci-lint"
