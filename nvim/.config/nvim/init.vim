@@ -164,12 +164,13 @@ let g:go_auto_sameids = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_rename_command='gopls'
-autocmd FileType go nmap <leader>gb <Plug>(go-build)
-autocmd FileType go nmap <leader>gr <Plug>(go-run)
-autocmd FileType go nmap <leader>gt <Plug>(go-test)
-autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_deadline = "5s"
+autocmd FileType go nmap <leader>cb <Plug>(go-build)
+autocmd FileType go nmap <leader>cr <Plug>(go-run)
+autocmd FileType go nmap <leader>ct <Plug>(go-test)
+autocmd FileType go nmap <leader>cc <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>cl <Plug>(go-metalinter)
+let g:go_metalinter_autosave = 0
+let g:go_metalinter_deadline = "10s"
 let g:go_auto_type_info = 1
 let g:go_fmt_experimental = 1 " Prevent VIM from refolding all folds on save
 let g:go_metalinter_command = "golangci-lint"
