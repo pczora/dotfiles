@@ -15,9 +15,10 @@ Plug 'plasticboy/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim', {'branch': '0.1.x'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'mhinz/vim-startify'
+Plug 'dstein64/vim-startuptime'
 
 " UML
 Plug 'scrooloose/vim-slumlord'
@@ -48,6 +49,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'simrat39/symbols-outline.nvim'
+Plug 'ThePrimeagen/refactoring.nvim'
 
 " Go
 Plug 'fatih/vim-go'
