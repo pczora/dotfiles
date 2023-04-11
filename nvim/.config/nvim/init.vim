@@ -34,7 +34,6 @@ Plug 'junegunn/goyo.vim'
 " VCS
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
-Plug 'stsewd/fzf-checkout.vim'
 
 " general coding stuff
 Plug 'preservim/nerdcommenter'
@@ -42,7 +41,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Yggdroot/indentLine'
@@ -253,7 +251,6 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-set rtp+=/usr/local/opt/fzf
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
