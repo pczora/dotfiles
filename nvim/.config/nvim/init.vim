@@ -1,109 +1,3 @@
-" Plugins {{{
-call plug#begin()
-
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-surround'
-Plug 'ggandor/leap.nvim'
-Plug 'tpope/vim-repeat'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'godlygeek/tabular'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'akinsho/bufferline.nvim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'windwp/nvim-autopairs'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', {'branch': '0.1.x'}
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'mhinz/vim-startify'
-Plug 'dstein64/vim-startuptime'
-Plug 'folke/which-key.nvim'
-
-" UML
-Plug 'scrooloose/vim-slumlord'
-Plug 'aklt/plantuml-syntax'
-
-" Zen
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-
-Plug 'terrastruct/d2-vim' " For D2 diagrams
-
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-
-" VCS
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'tpope/vim-fugitive'
-
-" general coding stuff
-Plug 'preservim/nerdcommenter'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'mileszs/ack.vim'
-Plug 'dag/vim-fish'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'rafamadriz/friendly-snippets'
-Plug 'simrat39/symbols-outline.nvim'
-Plug 'ThePrimeagen/refactoring.nvim'
-Plug 'folke/trouble.nvim'
-Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
-Plug 'sindrets/diffview.nvim'
-Plug 'antoinemadec/FixCursorHold.nvim'
-Plug 'nvim-neotest/neotest'
-
-" Go
-Plug 'fatih/vim-go'
-Plug 'nsf/gocode', {'rtp': 'vim/'}
-Plug 'sebdah/vim-delve'
-Plug 'nvim-neotest/neotest-go' " depends on nvim-neotest
-
-" Rust
-Plug 'rust-lang/rust.vim'
-
-" HTML, CSS, JS, TS, ...
-Plug 'pangloss/vim-javascript'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'jparise/vim-graphql'
-Plug 'leafgarland/typescript-vim'
-Plug 'MaxMEllon/vim-jsx-pretty'
-
-" colorschemes
-Plug 'dracula/vim'
-Plug 'AlessandroYorba/Alduin'
-Plug 'chriskempson/base16-vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'rebelot/kanagawa.nvim'
-
-" Ansible
-Plug 'pearofducks/ansible-vim'
-
-" Terraform
-Plug 'hashivim/vim-terraform'
-
-" AVR ASM
-Plug 'vim-scripts/avrasm.vim'
-
-" Ledger
-Plug 'ledger/vim-ledger'
-
-" Java
-Plug 'mfussenegger/nvim-jdtls'
-
-" All of your Plugins must be added before the following line
-call plug#end()            " required
-filetype plugin indent on    " required
-" }}}
-
 set autowrite
 let &t_Co=256
 :set background=dark
@@ -253,17 +147,11 @@ noremap <leader>c<space> <plug>NERDCommenterToggle
 " Rust
 let g:rustfmt_autosave = 1
 
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-colorscheme kanagawa
 let g:limelight_conceal_ctermfg = 'gray'
 
 " cmp-nvim
