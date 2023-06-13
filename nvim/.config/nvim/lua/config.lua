@@ -153,6 +153,15 @@ require('nvim-autopairs').setup{}
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 require'nvim-treesitter.configs'.setup{}
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.d2 = {
+  install_info = {
+    url = 'https://git.pleshevski.ru/pleshevskiy/tree-sitter-d2',
+    revision = 'main',
+    files = { 'src/parser.c', 'src/scanner.cc' },
+  },
+  filetype = 'd2',
+};
 require("luasnip.loaders.from_vscode").lazy_load()
 require("symbols-outline").setup()
 
@@ -258,3 +267,27 @@ require('telescope').setup {
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
+
+-- Neotest
+vim.diagnostic.config({virtual_text = {source = true}}, vim.api.nvim_create_namespace('neotest'))
+require('neotest').setup({
+  log_level = 1,
+  adapters = {
+    require("neotest-go")
+  },
+  quickfix = {
+    enabled = false
+  },
+  state = {
+    enabled = false
+  },
+  status = {
+    enabled = false
+  },
+  summary = {
+    enabled = false
+  }
+})
+
+
+vim.api.nvim_set_keymap('n', '<leader>q', ":e ~/.config/nvim/lua/config.lua<CR>", {desc="Edit Lua config"})

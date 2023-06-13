@@ -10,7 +10,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+Plug 'akinsho/bufferline.nvim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
@@ -30,6 +30,10 @@ Plug 'aklt/plantuml-syntax'
 " Zen
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+
+Plug 'terrastruct/d2-vim' " For D2 diagrams
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 " VCS
 Plug 'lewis6991/gitsigns.nvim'
@@ -54,11 +58,14 @@ Plug 'ThePrimeagen/refactoring.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 Plug 'sindrets/diffview.nvim'
+Plug 'antoinemadec/FixCursorHold.nvim'
+Plug 'nvim-neotest/neotest'
 
 " Go
 Plug 'fatih/vim-go'
 Plug 'nsf/gocode', {'rtp': 'vim/'}
 Plug 'sebdah/vim-delve'
+Plug 'nvim-neotest/neotest-go' " depends on nvim-neotest
 
 " Rust
 Plug 'rust-lang/rust.vim'
