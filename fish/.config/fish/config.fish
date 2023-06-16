@@ -58,3 +58,4 @@ complete --command aws --no-files --arguments '(begin; set --local --export COMP
 fish_add_path $HOME/.krew/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/go/bin
+direnv hook fish | source
