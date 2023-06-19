@@ -76,7 +76,7 @@ cmp.setup({
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it. 
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
   }, {
     { name = 'buffer' },
   })
@@ -97,9 +97,9 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
-require'nvim-tree'.setup()
+require 'nvim-tree'.setup()
 -- Setup lspconfig.
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
@@ -117,33 +117,58 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl',
+    '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>bf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 end
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-local servers = { 'terraformls', 'lua_ls', 'ansiblels', 'tsserver', 'jedi_language_server', 'texlab', 'pyright'}
+local servers = { 'terraformls', 'lua_ls', 'ansiblels', 'tsserver', 'jedi_language_server', 'texlab', 'pyright' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach
   }
 end
 
-require('lspconfig')['gopls'].setup{
-    on_attach = on_attach,
-    settings = {
-      gopls = {
-        staticcheck = true
-      }
+require('lspconfig')['gopls'].setup {
+  on_attach = on_attach,
+  settings = {
+    gopls = {
+      staticcheck = true
     }
+  }
 }
-require('lspconfig')['rust_analyzer'].setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
+local rt = require("rust-tools")
+
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+      -- Mappings.
+      -- See `:help vim.lsp.*` for documentation on any of the below functions
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl',
+        '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>bf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+    end,
+  },
+})
 require('lspconfig')['bashls'].setup {
 }
 require('lspconfig')['lua_ls'].setup {
@@ -162,10 +187,13 @@ require('lspconfig')['lua_ls'].setup {
   }
 }
 
-require('nvim-autopairs').setup{}
+require('nvim-autopairs').setup {}
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
-require'nvim-treesitter.configs'.setup{}
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+require 'nvim-treesitter.configs'.setup {
+  ensure_installed = { "lua", "toml", "rust" },
+  auto_install = true
+}
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 parser_config.d2 = {
   install_info = {
@@ -184,46 +212,46 @@ vim.g.symbols_outline = {
 }
 
 vim.opt.termguicolors = true
-require("bufferline").setup{}
-require("trouble").setup{}
+require("bufferline").setup {}
+require("trouble").setup {}
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
 
-  {silent = true, noremap = true}
+  { silent = true, noremap = true }
 )
 vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
-  {silent = true, noremap = true}
+  { silent = true, noremap = true }
 )
 vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
-  {silent = true, noremap = true}
+  { silent = true, noremap = true }
 )
 vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
-  {silent = true, noremap = true}
+  { silent = true, noremap = true }
 
 )
 vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
-  {silent = true, noremap = true}
+  { silent = true, noremap = true }
 )
 
 vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
-  {silent = true, noremap = true}
+  { silent = true, noremap = true }
 )
 
-require("lsp_lines").setup{}
+require("lsp_lines").setup {}
 -- Disable regular virtual_text in favor of lsp_lines
 vim.diagnostic.config({
   virtual_text = false
 })
-vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, {desc = "Toggle lsp_lines"})
+vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 
 require('leap').add_default_mappings()
 
 vim.o.timeout = true
 vim.o.timeoutlen = 300
-require("which-key").setup{}
+require("which-key").setup {}
 
-require('diffview').setup{}
+require('diffview').setup {}
 
-require('gitsigns').setup{
+require('gitsigns').setup {
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
@@ -238,42 +266,42 @@ require('gitsigns').setup{
       if vim.wo.diff then return ']c' end
       vim.schedule(function() gs.next_hunk() end)
       return '<Ignore>'
-    end, {expr=true})
+    end, { expr = true })
 
     map('n', '[c', function()
       if vim.wo.diff then return '[c' end
       vim.schedule(function() gs.prev_hunk() end)
       return '<Ignore>'
-    end, {expr=true})
+    end, { expr = true })
 
 
     -- Actions
-    map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-    map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
-    map('n', '<leader>hS', gs.stage_buffer, {desc="Stage buffer"})
-    map('n', '<leader>hu', gs.undo_stage_hunk, {desc="Undo stage hunk"})
+    map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+    map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+    map('n', '<leader>hS', gs.stage_buffer, { desc = "Stage buffer" })
+    map('n', '<leader>hu', gs.undo_stage_hunk, { desc = "Undo stage hunk" })
 
-    map('n', '<leader>hR', gs.reset_buffer, {desc="Reset buffer"})
-    map('n', '<leader>hp', gs.preview_hunk, {desc="Preview hunk"})
-    map('n', '<leader>hb', function() gs.blame_line{full=true} end, {desc="Blame line (full commit)"})
-    map('n', '<leader>tb', gs.toggle_current_line_blame, {desc="Toggle current line blame"})
-    map('n', '<leader>hd', gs.diffthis, {desc="Diff this"})
+    map('n', '<leader>hR', gs.reset_buffer, { desc = "Reset buffer" })
+    map('n', '<leader>hp', gs.preview_hunk, { desc = "Preview hunk" })
+    map('n', '<leader>hb', function() gs.blame_line { full = true } end, { desc = "Blame line (full commit)" })
+    map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = "Toggle current line blame" })
+    map('n', '<leader>hd', gs.diffthis, { desc = "Diff this" })
     map('n', '<leader>hD', function() gs.diffthis('~') end)
-    map('n', '<leader>td', gs.toggle_deleted, {desc="Toggle deleted"})
+    map('n', '<leader>td', gs.toggle_deleted, { desc = "Toggle deleted" })
 
     -- Text object
 
-    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+    map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   end
 }
 require('telescope').setup {
   extensions = {
     fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                       -- the default case_mode is "smart_case"
+      fuzzy = true,                   -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true,    -- override the file sorter
+      case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
     }
   }
 }
@@ -282,7 +310,7 @@ require('telescope').setup {
 require('telescope').load_extension('fzf')
 
 -- Neotest
-vim.diagnostic.config({virtual_text = {source = true}}, vim.api.nvim_create_namespace('neotest'))
+vim.diagnostic.config({ virtual_text = { source = true } }, vim.api.nvim_create_namespace('neotest'))
 require('neotest').setup({
   log_level = 1,
   adapters = {
@@ -303,4 +331,4 @@ require('neotest').setup({
 })
 
 
-vim.api.nvim_set_keymap('n', '<leader>q', ":e ~/.config/nvim/lua/config.lua<CR>", {desc="Edit Lua config"})
+vim.api.nvim_set_keymap('n', '<leader>q', ":e ~/.config/nvim/lua/config.lua<CR>", { desc = "Edit Lua config" })

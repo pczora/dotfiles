@@ -24,11 +24,14 @@ return {
   "windwp/nvim-autopairs",
   "nvim-lua/plenary.nvim",
   {
-      'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.1',
+    dependencies = { 'nvim-lua/plenary.nvim' }
   },
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+  { 'nvim-telescope/telescope-fzf-native.nvim',
+                                                  build =
+    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+  { "nvim-treesitter/nvim-treesitter",          build = ":TSUpdate" },
   "mhinz/vim-startify",
   "dstein64/vim-startuptime",
   "scrooloose/vim-slumlord",
@@ -36,7 +39,7 @@ return {
   "junegunn/limelight.vim",
   "junegunn/goyo.vim",
   "terrastruct/d2-vim",
-   {"iamcco/markdown-preview.nvim", build = "cd app && yarn install"},
+  { "iamcco/markdown-preview.nvim", build = "cd app && yarn install" },
   "lewis6991/gitsigns.nvim",
   "tpope/vim-fugitive",
   "preservim/nerdcommenter",
@@ -62,7 +65,7 @@ return {
   "fatih/vim-go",
   "sebdah/vim-delve",
   "nvim-neotest/neotest-go", -- depends on nvim-neotest,
-  "rust-lang/rust.vim",
+  "simrat39/rust-tools.nvim",
   "pangloss/vim-javascript",
   "peitalin/vim-jsx-typescript",
   "jparise/vim-graphql",
@@ -72,13 +75,15 @@ return {
   "AlessandroYorba/Alduin",
   "chriskempson/base16-vim",
   "arcticicestudio/nord-vim",
-  { "rebelot/kanagawa.nvim",
+  {
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
     config = function()
       -- load the colorscheme here
       vim.cmd([[colorscheme kanagawa]])
-    end, },
+    end,
+  },
   "pearofducks/ansible-vim",
   "hashivim/vim-terraform",
   "vim-scripts/avrasm.vim",
