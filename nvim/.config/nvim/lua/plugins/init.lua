@@ -65,7 +65,6 @@ return {
   "fatih/vim-go",
   "sebdah/vim-delve",
   "nvim-neotest/neotest-go", -- depends on nvim-neotest,
-  "simrat39/rust-tools.nvim",
   "pangloss/vim-javascript",
   "peitalin/vim-jsx-typescript",
   "jparise/vim-graphql",
