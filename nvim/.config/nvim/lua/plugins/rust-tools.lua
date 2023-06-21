@@ -1,4 +1,4 @@
-return {
+  return {
   "simrat39/rust-tools.nvim",
   dependencies = {
     'neovim/nvim-lspconfig',
@@ -10,6 +10,9 @@ return {
       tools = {
         -- rust-tools options
 
+        runnables = {
+          use_telescope = true,
+        },
         -- how to execute terminal commands
         -- options right now: termopen / quickfix
         executor = require("rust-tools.executors").termopen,
@@ -174,6 +177,13 @@ return {
           vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
           vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>bf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
         end,
+        settings = {
+          ["rust-analyzer"] = {
+            check = {
+              command = "clippy",
+            },
+          },
+        },
       }, -- rust-analyzer options
       -- debugging stuff
       dap = {

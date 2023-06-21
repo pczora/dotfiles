@@ -144,9 +144,6 @@ nmap <F4> :NvimTreeToggle<CR>
 let g:NERDCreateDefaultMappings = 0
 noremap <leader>c<space> <plug>NERDCommenterToggle
 
-" Rust
-let g:rustfmt_autosave = 1
-
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
