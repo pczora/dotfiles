@@ -1,4 +1,4 @@
-  return {
+return {
   "simrat39/rust-tools.nvim",
   dependencies = {
     'neovim/nvim-lspconfig',
@@ -76,7 +76,7 @@
           -- Backend used for displaying the graph
           -- see: https://graphviz.org/docs/outputs/
           -- default: x11
-          backend = "x11",
+          backend = "svg",
           -- where to store the output, nil for no output stored (relative
           -- path from pwd)
           -- default: nil
@@ -182,6 +182,9 @@
             check = {
               command = "clippy",
             },
+            diagnostics = {
+              enable = true,
+            }
           },
         },
       }, -- rust-analyzer options

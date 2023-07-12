@@ -62,9 +62,7 @@ return {
   "sindrets/diffview.nvim",
   "antoinemadec/FixCursorHold.nvim",
   "nvim-neotest/neotest",
-  "fatih/vim-go",
   "sebdah/vim-delve",
-  "nvim-neotest/neotest-go", -- depends on nvim-neotest,
   "pangloss/vim-javascript",
   "peitalin/vim-jsx-typescript",
   "jparise/vim-graphql",
@@ -87,4 +85,11 @@ return {
   "hashivim/vim-terraform",
   "vim-scripts/avrasm.vim",
   "mfussenegger/nvim-jdtls",
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap"
+    },
+    config = true,
+  },
 }
