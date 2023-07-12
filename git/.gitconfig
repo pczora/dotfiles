@@ -12,4 +12,6 @@
 [merge]
   tool = vimdiff
 [includeIf "gitdir:~/repos/synaos/"]
-    path = ~/.gitconfig_work
+  path = ~/.gitconfig_work
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
