@@ -25,7 +25,7 @@ return {
   "nvim-lua/plenary.nvim",
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
+    tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
   { 'nvim-telescope/telescope-fzf-native.nvim',
@@ -34,7 +34,6 @@ return {
   { "nvim-treesitter/nvim-treesitter",          build = ":TSUpdate" },
   "mhinz/vim-startify",
   "dstein64/vim-startuptime",
-  "scrooloose/vim-slumlord",
   "aklt/plantuml-syntax",
   "junegunn/limelight.vim",
   "junegunn/goyo.vim",
@@ -52,7 +51,13 @@ return {
   "Yggdroot/indentLine",
   "mileszs/ack.vim",
   "dag/vim-fish",
-  "L3MON4D3/LuaSnip",
+  {
+	"L3MON4D3/LuaSnip",
+	-- follow latest release.
+	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- install jsregexp (optional!).
+	build = "make install_jsregexp"
+  },
   "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
   "simrat39/symbols-outline.nvim",
@@ -61,7 +66,12 @@ return {
   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   "sindrets/diffview.nvim",
   "antoinemadec/FixCursorHold.nvim",
-  "nvim-neotest/neotest",
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio"
+    }
+  },
   "sebdah/vim-delve",
   "pangloss/vim-javascript",
   "peitalin/vim-jsx-typescript",
@@ -119,5 +129,11 @@ return {
       { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
       { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
     },
+  },
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end
   },
 }
