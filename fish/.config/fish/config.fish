@@ -35,7 +35,7 @@ alias gps='git push'
 alias gco='git commit'
 
 alias cat='bat'
-alias ls='exa'
+alias ls='eza'
 
 switch (uname -a) 
   case "*Darwin*"
