@@ -4,14 +4,20 @@
 [init]
   defaultBranch = main
 [diff]
-  tool = vimdiff
+  tool = nvimdiff
 [pull]
   rebase = false
 [push]
   default = current
 [merge]
-  tool = vimdiff
+  tool = nvimdiff
 [includeIf "gitdir:~/repos/synaos/"]
   path = ~/.gitconfig_work
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
+[mergetool]
+  keepBackup = false
+[core]
+  pager = delta
+[delta]
+  side-by-side = true
