@@ -1,10 +1,12 @@
 [user]
   email = philipp@czora.dev
   name = Philipp Czora
+[core]
+  pager = delta
 [init]
   defaultBranch = main
 [diff]
-  tool = vimdiff
+  tool = difftastic
 [pull]
   rebase = false
 [push]
