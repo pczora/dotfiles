@@ -1,8 +1,6 @@
 [user]
   email = philipp@czora.dev
   name = Philipp Czora
-[core]
-  pager = delta
 [init]
   defaultBranch = main
 [diff]
@@ -12,8 +10,14 @@
 [push]
   default = current
 [merge]
-  tool = vimdiff
+  tool = nvimdiff
 [includeIf "gitdir:~/repos/synaos/"]
   path = ~/.gitconfig_work
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
+[mergetool]
+  keepBackup = false
+[core]
+  pager = delta
+[delta]
+  side-by-side = true
