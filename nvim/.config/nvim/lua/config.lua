@@ -127,7 +127,7 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>bf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 end
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-local servers = { 'terraformls', 'lua_ls', 'ansiblels', 'tsserver', 'jedi_language_server', 'texlab', 'pyright' }
+local servers = { 'terraformls', 'lua_ls', 'ansiblels', 'ts_ls', 'jedi_language_server', 'texlab', 'pyright' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach
