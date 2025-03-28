@@ -28,9 +28,7 @@ return {
     tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
-  { 'nvim-telescope/telescope-fzf-native.nvim',
-                                                  build =
-    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
   { "nvim-treesitter/nvim-treesitter",          build = ":TSUpdate" },
   "mhinz/vim-startify",
   "dstein64/vim-startuptime",
@@ -63,7 +61,6 @@ return {
   "simrat39/symbols-outline.nvim",
   "ThePrimeagen/refactoring.nvim",
   "folke/trouble.nvim",
-  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   "sindrets/diffview.nvim",
   "antoinemadec/FixCursorHold.nvim",
   {

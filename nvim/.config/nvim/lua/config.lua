@@ -93,10 +93,6 @@ cmp.setup.cmdline(':', {
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-  capabilities = capabilities
-}
 require 'nvim-tree'.setup()
 -- Setup lspconfig.
 local opts = { noremap = true, silent = true }
@@ -125,15 +121,16 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>bf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 end
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local servers = { 'terraformls', 'lua_ls', 'ansiblels', 'ts_ls', 'jedi_language_server', 'texlab', 'pyright' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
+    capabilities=capabilities,
     on_attach = on_attach
   }
 end
 
 require('lspconfig')['gopls'].setup {
+  capabilities=capabilities,
   on_attach = on_attach,
   settings = {
     gopls = {
@@ -142,8 +139,10 @@ require('lspconfig')['gopls'].setup {
   }
 }
 require('lspconfig')['bashls'].setup {
+  capabilities=capabilities
 }
 require('lspconfig')['lua_ls'].setup {
+  capabilities=capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -208,12 +207,10 @@ vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
   { silent = true, noremap = true }
 )
 
-require("lsp_lines").setup {}
--- Disable regular virtual_text in favor of lsp_lines
 vim.diagnostic.config({
-  virtual_text = false
+  virtual_lines = true
 })
-vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+
 
 require('leap').add_default_mappings()
 
