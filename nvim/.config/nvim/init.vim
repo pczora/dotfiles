@@ -88,7 +88,7 @@ set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
 " Telescope mappings
-nnoremap <Leader>ff <cmd> Telescope find_files<cr>
+nnoremap <Leader>ff <cmd> Telescope find_files hidden=true<cr>
 nnoremap <Leader>fbu <cmd> Telescope buffers<cr>
 nnoremap <Leader>ft <cmd> Telescope tags<cr>
 nnoremap <Leader>fg <cmd> Telescope live_grep<cr>
