@@ -127,9 +127,6 @@ set nospell
 
 let g:vim_markdown_folding_disabled = 1
 
-" Use shortcut to toggle paste mode
-set pastetoggle=<F2>
-
 " Use shortcut to toggle symbols-outline
 nmap <F3> :SymbolsOutline<CR>
 
