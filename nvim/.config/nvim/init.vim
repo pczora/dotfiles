@@ -23,17 +23,13 @@ inoremap jk ^[l
 :set laststatus=2	" Show statusbar always
 :set cursorline		" highlight the current line
 
-" vim-latex
-" " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-"filetype plugin on
+filetype plugin indent on
 "
 " " IMPORTANT: grep will sometimes skip displaying the file name if you
 " " search in a singe file. This will confuse Latex-Suite. Set your grep
 " " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
 "
-" " OPTIONAL: This enables automatic indentation as you type.
-"filetype indent on
 "
 " " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults
 " to

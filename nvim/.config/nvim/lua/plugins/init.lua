@@ -3,7 +3,7 @@ return {
   "christoomey/vim-tmux-navigator",
   "tpope/vim-surround",
   "tpope/vim-unimpaired",
-  "ggandor/leap.nvim",
+  "https://codeberg.org/andyg/leap.nvim",
   "tpope/vim-repeat",
   "vim-airline/vim-airline",
   "vim-airline/vim-airline-themes",
@@ -50,11 +50,11 @@ return {
   "mileszs/ack.vim",
   "dag/vim-fish",
   {
-	"L3MON4D3/LuaSnip",
-	-- follow latest release.
-	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	-- install jsregexp (optional!).
-	build = "make install_jsregexp"
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp"
   },
   "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
@@ -93,7 +93,7 @@ return {
   "vim-scripts/avrasm.vim",
   "mfussenegger/nvim-jdtls",
   {
-      "mfussenegger/nvim-dap",
+    "mfussenegger/nvim-dap",
     dependencies = {
       {
         "rcarriga/nvim-dap-ui",
@@ -133,5 +133,17 @@ return {
       require("mason").setup()
     end
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000,
+  opts = {
+    background = {
+      light = "latte",
+      dark = "frappe",
+    }
+  }
+},
+{
+  "f-person/auto-dark-mode.nvim",
+  opts = {
+  }
+}
 }
