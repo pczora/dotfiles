@@ -44,7 +44,9 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<Tab>'] = cmp.mapping.select_next_item(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -118,58 +120,30 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>bf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 end
 local servers = { 'terraformls', 'lua_ls', 'ansiblels', 'ts_ls', 'jedi_language_server', 'texlab', 'pyright' }
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    capabilities=capabilities,
+
+for _, s in pairs(servers) do
+  vim.lsp.config(s, {
+    capabilities = capabilities,
     on_attach = on_attach
-  }
+  })
 end
 
-require('lspconfig')['gopls'].setup {
-  capabilities=capabilities,
+vim.lsp.config('gopls', {
+  capabilities = capabilities,
   on_attach = on_attach,
   settings = {
     gopls = {
       staticcheck = true
     }
   }
-}
-require('lspconfig')['bashls'].setup {
-  capabilities=capabilities
-}
-require('lspconfig')['lua_ls'].setup {
-  capabilities=capabilities,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' }
-      }
-    },
-    runtime = {
-      version = 'LuaJIT'
-    }
-  },
-  telemetry = {
-    enable = false,
-  }
-}
+})
 
 require('nvim-autopairs').setup {}
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
-require 'nvim-treesitter.configs'.setup {
-  ensure_installed = { "lua", "toml", "rust" },
-  auto_install = true
-}
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.d2 = {
-  install_info = {
-    url = 'https://git.pleshevski.ru/pleshevskiy/tree-sitter-d2',
-    revision = 'main',
-    files = { 'src/parser.c', 'src/scanner.cc' },
-  },
-  filetype = 'd2',
-};
+require 'nvim-treesitter'.install({'rust', 'lua', 'toml'})
+
+
 require("luasnip.loaders.from_vscode").lazy_load()
 require("symbols-outline").setup()
 
@@ -293,4 +267,4 @@ require('neotest').setup({
 
 vim.api.nvim_set_keymap('n', '<leader>q', ":e ~/.config/nvim/lua/config.lua<CR>", { desc = "Edit Lua config" })
 
-vim.cmd("colorscheme catppuccin-latte")
+vim.cmd("colorscheme catppuccin")

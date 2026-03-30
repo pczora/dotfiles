@@ -1,13 +1,12 @@
 set autowrite
 let &t_Co=256
-:set background=dark
 :syntax on
 :set cc=80
 :set number
 :set nocompatible
 :set hidden
 :set foldmethod=syntax
-:set shell=/usr/local/bin/bash
+:set shell=/usr/bin/fish
 
 " Tabs & Autoindentation {{{
 :set expandtab     " don't use actual tab character (ctrl-v)
@@ -150,3 +149,4 @@ set completeopt=menuone,noselect,noinsert
 lua <<EOF
 require('config')
 EOF
+
