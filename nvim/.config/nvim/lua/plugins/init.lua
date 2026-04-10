@@ -47,7 +47,6 @@ return {
   "hrsh7th/cmp-cmdline",
   "hrsh7th/nvim-cmp",
   "AndrewRadev/splitjoin.vim",
-  "Yggdroot/indentLine",
   "mileszs/ack.vim",
   "dag/vim-fish",
   {
@@ -61,7 +60,6 @@ return {
   "rafamadriz/friendly-snippets",
   "simrat39/symbols-outline.nvim",
   "ThePrimeagen/refactoring.nvim",
-  "folke/trouble.nvim",
   "sindrets/diffview.nvim",
   "antoinemadec/FixCursorHold.nvim",
   {
@@ -78,17 +76,6 @@ return {
   "MaxMEllon/vim-jsx-pretty",
   "dracula/vim",
   "AlessandroYorba/Alduin",
-  "chriskempson/base16-vim",
-  "arcticicestudio/nord-vim",
-  {
-    "rebelot/kanagawa.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- load the colorscheme here
-      vim.cmd([[colorscheme kanagawa]])
-    end,
-  },
   "pearofducks/ansible-vim",
   "hashivim/vim-terraform",
   "vim-scripts/avrasm.vim",
@@ -146,5 +133,12 @@ return {
   "f-person/auto-dark-mode.nvim",
   opts = {
   }
+},
+{
+  "lukas-reineke/indent-blankline.nvim",
+  main = "ibl",
+  ---@module "ibl"
+  ---@type ibl.config
+  opts = {},
 }
 }

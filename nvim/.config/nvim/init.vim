@@ -6,7 +6,6 @@ let &t_Co=256
 :set nocompatible
 :set hidden
 :set foldmethod=syntax
-:set shell=/usr/bin/fish
 
 " Tabs & Autoindentation {{{
 :set expandtab     " don't use actual tab character (ctrl-v)

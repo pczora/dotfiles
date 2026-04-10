@@ -141,7 +141,10 @@ vim.lsp.config('gopls', {
 require('nvim-autopairs').setup {}
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
-require 'nvim-treesitter'.install({'rust', 'lua', 'toml'})
+require 'nvim-treesitter.configs'.setup {
+  ensure_installed = { "lua", "toml", "rust" },
+  auto_install = true
+}
 
 
 require("luasnip.loaders.from_vscode").lazy_load()
