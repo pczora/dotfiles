@@ -42,7 +42,7 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-CR>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<Tab>'] = cmp.mapping.select_next_item(),
@@ -89,15 +89,10 @@ cmp.setup.cmdline(':', {
   matching = { disallow_symbol_nonprefix_matching = false }
 })
 
--- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require 'nvim-tree'.setup()
--- Setup lspconfig.
+
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
--- Use an on_attach function to only map the following keys
+vim.api.nvim_set_keymap('n', '<space>d', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 -- after the language server attaches to the current buffer
 local on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
@@ -119,13 +114,16 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>bf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 end
-local servers = { 'terraformls', 'lua_ls', 'ansiblels', 'ts_ls', 'jedi_language_server', 'texlab', 'pyright' }
+local servers = {'terraformls', 'lua_ls', 'ansiblels', 'ts_ls', 'jedi_language_server', 'texlab', 'pyright'}
 
+-- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 for _, s in pairs(servers) do
   vim.lsp.config(s, {
     capabilities = capabilities,
     on_attach = on_attach
   })
+  vim.lsp.enable(s)
 end
 
 vim.lsp.config('gopls', {
@@ -137,23 +135,31 @@ vim.lsp.config('gopls', {
     }
   }
 })
+vim.lsp.enable('gopls')
+
+vim.lsp.config('rust_analyzer', {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      check = {
+        command = "clippy"
+      }
+    }
+  }
+})
+vim.lsp.enable('rust_analyzer')
 
 require('nvim-autopairs').setup {}
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
 require 'nvim-treesitter.configs'.setup {
-  ensure_installed = { "lua", "toml", "rust" },
+  ensure_installed = { "lua", "toml", "rust", "markdown" },
   auto_install = true
 }
 
 
 require("luasnip.loaders.from_vscode").lazy_load()
-require("symbols-outline").setup()
-
--- Disabled because it is slow on large projects
-vim.g.symbols_outline = {
-  auto_preview = false
-}
 
 vim.opt.termguicolors = true
 require("bufferline").setup {}
@@ -193,10 +199,10 @@ require('gitsigns').setup {
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
-    local function map(mode, l, r, opts)
-      opts = opts or {}
-      opts.buffer = bufnr
-      vim.keymap.set(mode, l, r, opts)
+    local function map(mode, l, r, local_opts)
+      local_opts = local_opts or {}
+      local_opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, local_opts)
     end
 
     -- Navigation
@@ -268,6 +274,9 @@ require('neotest').setup({
   }
 })
 
+require("image").setup({
+  processor = "magick_cli",
+})
 vim.api.nvim_set_keymap('n', '<leader>q', ":e ~/.config/nvim/lua/config.lua<CR>", { desc = "Edit Lua config" })
 
 vim.cmd("colorscheme catppuccin")

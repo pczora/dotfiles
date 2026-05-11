@@ -58,7 +58,6 @@ return {
   },
   "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
-  "simrat39/symbols-outline.nvim",
   "ThePrimeagen/refactoring.nvim",
   "sindrets/diffview.nvim",
   "antoinemadec/FixCursorHold.nvim",
@@ -74,8 +73,6 @@ return {
   "jparise/vim-graphql",
   "leafgarland/typescript-vim",
   "MaxMEllon/vim-jsx-pretty",
-  "dracula/vim",
-  "AlessandroYorba/Alduin",
   "pearofducks/ansible-vim",
   "hashivim/vim-terraform",
   "vim-scripts/avrasm.vim",
@@ -140,5 +137,10 @@ return {
   ---@module "ibl"
   ---@type ibl.config
   opts = {},
+},
+{
+  "3rd/image.nvim",
+},
+
 }
-}
+

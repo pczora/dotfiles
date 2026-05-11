@@ -1,7 +1,6 @@
 set autowrite
 let &t_Co=256
 :syntax on
-:set cc=80
 :set number
 :set nocompatible
 :set hidden
@@ -120,9 +119,6 @@ set backspace=2
 set nospell
 
 let g:vim_markdown_folding_disabled = 1
-
-" Use shortcut to toggle symbols-outline
-nmap <F3> :SymbolsOutline<CR>
 
 nmap <F4> :NvimTreeToggle<CR>
 
