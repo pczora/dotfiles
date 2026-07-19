@@ -153,14 +153,8 @@ vim.lsp.enable('rust_analyzer')
 require('nvim-autopairs').setup {}
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
-require 'nvim-treesitter.configs'.setup {
-  ensure_installed = { "lua", "toml", "rust", "markdown", "html", "gotmpl"},
-  auto_install = true,
-  highlight = {
-    enable = true
-  }
-}
 
+require 'nvim-treesitter'.install { "lua", "toml", "rust", "markdown", "html", "gotmpl"}
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
