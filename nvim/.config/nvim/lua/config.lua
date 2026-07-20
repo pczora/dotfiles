@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
+vim.cmd("colorscheme catppuccin")
 
 local luasnip = require("luasnip")
 
@@ -153,6 +154,7 @@ vim.lsp.enable('rust_analyzer')
 require('nvim-autopairs').setup {}
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+
 require 'nvim-treesitter.configs'.setup {
   ensure_installed = { "lua", "toml", "rust", "markdown" },
   auto_install = true
@@ -277,6 +279,6 @@ require('neotest').setup({
 require("image").setup({
   processor = "magick_cli",
 })
+
 vim.api.nvim_set_keymap('n', '<leader>q', ":e ~/.config/nvim/lua/config.lua<CR>", { desc = "Edit Lua config" })
 
-vim.cmd("colorscheme catppuccin")
