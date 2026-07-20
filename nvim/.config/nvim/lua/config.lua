@@ -115,7 +115,7 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>bf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 end
-local servers = {'terraformls', 'lua_ls', 'ansiblels', 'ts_ls', 'jedi_language_server', 'texlab', 'pyright'}
+local servers = {'terraformls', 'lua_ls', 'ansiblels', 'ts_ls', 'jedi_language_server', 'texlab', 'pyright', 'yamlls'}
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -155,11 +155,7 @@ require('nvim-autopairs').setup {}
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
 
-require 'nvim-treesitter.configs'.setup {
-  ensure_installed = { "lua", "toml", "rust", "markdown" },
-  auto_install = true
-}
-
+require 'nvim-treesitter'.install { "lua", "toml", "rust", "markdown", "html", "gotmpl"}
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -273,6 +269,13 @@ require('neotest').setup({
   },
   summary = {
     enabled = false
+  }
+})
+
+-- Go HTML template syntax highlighting
+vim.filetype.add({
+  extension = {
+    gohtml = "gotmpl"
   }
 })
 
